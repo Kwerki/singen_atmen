@@ -5,7 +5,7 @@
 
 <script>
 export default {
-    name: 'SingenView'
+    name: 'HomeView'
 }
 </script>
 

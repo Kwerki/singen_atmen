@@ -2,17 +2,28 @@
     <div class="navbar-wrapper">
         <v-app-bar class="navbar" :elevation="0" color="white" density="compact">
 
-            <v-btn :ripple="false" class="home-btn" icon variant="plain">
+            <v-btn :ripple="false" class="home-btn" icon variant="plain" to="/home">
                 <img src="@/assets/home_button.svg" alt="Home" class="home-logo">
             </v-btn>
 
 
             <v-container class="d-flex justify-center">
                 <div class="d-flex button-group">
-                    <v-btn :ripple="false" variant="plain">Atmen</v-btn>
-                    <v-btn :ripple="false" variant="plain">Sprechen</v-btn>
-                    <v-btn :ripple="false" variant="plain">Singen</v-btn>
-                    <v-btn :ripple="false" variant="plain">Klavier</v-btn>
+                    <v-btn :ripple="false" variant="plain" to="/atmen">
+                        <img src="@/assets/navbar_logo_atmen.svg" width="24" height="24">
+                        Atmen
+                    </v-btn>
+                    <v-btn :ripple="false" variant="plain" to="/sprechen">
+                        <img src="@/assets/navbar_logo_sprechen.svg" width="24" height="24">
+                        Sprechen
+                    </v-btn>
+                    <v-btn :ripple="false" variant="plain" to="/singen">
+                        <img src="@/assets/navbar_logo_singen.svg" width="24" height="24">
+                        Singen
+                    </v-btn>
+                    <v-btn :ripple="false" variant="plain" to="/klavier">
+                        <img src="@/assets/navbar_logo_klavier.svg" width="24" height="24">Klavier
+                    </v-btn>
                 </div>
             </v-container>
         </v-app-bar>
