@@ -6,11 +6,35 @@ import SprechenView from '@/views/SprechenView.vue'
 import HomeView from '@/views/HomeView.vue'
 
 const routes = [
-  { path: '/home', component: HomeView },
-  { path: '/atmen', component: AtmenView },
-  { path: '/klavier', component: KlavierView },
-  { path: '/singen', component: SingenView },
-  { path: '/sprechen', component: SprechenView },
+  {
+    path: '/',
+    redirect: { name: 'home' },
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: HomeView,
+  },
+  {
+    path: '/atmen',
+    name: 'atmen',
+    component: AtmenView,
+  },
+  {
+    path: '/klavier',
+    name: 'klavier',
+    component: KlavierView,
+  },
+  {
+    path: '/singen',
+    name: 'singen',
+    component: SingenView,
+  },
+  {
+    path: '/sprechen',
+    name: 'sprechen',
+    component: SprechenView,
+  },
 ]
 
 const router = createRouter({
