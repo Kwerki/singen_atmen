@@ -1,16 +1,24 @@
+<template>
+  <v-app>
+    <header class="header">
+      <img src=" @/assets/home_header.svg">
+    </header>
+
+    <NavBar />
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
+</template>
+
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import NavBar from '@/components/NavBar.vue';
 
 </script>
 
-<template>
-  <header class="header">
-    <img src=" @/assets/primär_mS-24.svg" alt="HeaderLogo">
-  </header>
 
-
-  <RouterView />
-</template>
 
 <style scoped>
 .header {
