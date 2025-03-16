@@ -34,6 +34,7 @@ const headerImage = computed(() => {
       return new URL('@/assets/home_header.svg', import.meta.url).href;
   }
 });
+
 </script>
 
 

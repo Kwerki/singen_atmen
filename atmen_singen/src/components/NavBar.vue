@@ -11,18 +11,19 @@
                 <div class="d-flex button-group">
                     <v-btn :ripple="false" variant="plain" to="/atmen">
                         <img src="@/assets/navbar_logo_atmen.svg" width="24" height="24">
-                        Atmen
+                        <div class="btn-text">Atmen</div>
                     </v-btn>
                     <v-btn :ripple="false" variant="plain" to="/sprechen">
                         <img src="@/assets/navbar_logo_sprechen.svg" width="24" height="24">
-                        Sprechen
+                        <div class="btn-text">Sprechen</div>
                     </v-btn>
                     <v-btn :ripple="false" variant="plain" to="/singen">
                         <img src="@/assets/navbar_logo_singen.svg" width="24" height="24">
-                        Singen
+                        <div class="btn-text">Singen</div>
                     </v-btn>
                     <v-btn :ripple="false" variant="plain" to="/klavier">
-                        <img src="@/assets/navbar_logo_klavier.svg" width="24" height="24">Klavier
+                        <img src="@/assets/navbar_logo_klavier.svg" width="24" height="24">
+                        <div class="btn-text">Klavier</div>
                     </v-btn>
                 </div>
             </v-container>
@@ -60,5 +61,28 @@
 
 .button-group {
     gap: 8vw;
+}
+
+/* Unterstrich Hover-Effekt */
+.btn-text {
+    position: relative;
+    padding-bottom: 2px;
+    overflow: hidden;
+}
+
+.btn-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: left 0.3s ease-in-out;
+}
+
+
+.v-btn:hover .btn-text::after {
+    left: 0;
 }
 </style>
