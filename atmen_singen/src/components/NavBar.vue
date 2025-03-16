@@ -37,13 +37,16 @@
 
                 <v-spacer></v-spacer>
 
-                <v-app-bar-nav-icon variant="plain" ripple="false" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+                <v-app-bar-nav-icon variant="plain" :ripple="false" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
             </v-app-bar>
         </div>
-
         <v-navigation-drawer v-model="drawer" location="right">
-            <v-list :items="items"></v-list>
+            <v-list variant="plain">
+                <v-list-item v-for="item in items" :key="item.value" :ripple="false" style="cursor: pointer;">
+                    <div class="btn-text">{{ item.title }}</div>
+                </v-list-item>
+            </v-list>
         </v-navigation-drawer>
     </v-app>
 
@@ -68,10 +71,6 @@ export default {
                 title: 'Youtube',
                 value: 'fizz',
             },
-            {
-                title: 'Termine',
-                value: 'buzz',
-            },
         ],
     }),
 
@@ -84,6 +83,17 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+    font-family: 'Delius Swash Caps';
+    src: url('@/fonts/deliusswashcaps.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+.custom-font {
+    font-family: 'Delius Swash Caps';
+}
+
 .home-logo {
     width: 55px;
     height: 55px;
@@ -130,13 +140,21 @@ export default {
 }
 
 
-.v-btn:hover .btn-text::after {
+.v-btn:hover .btn-text::after,
+.v-list-item:hover .btn-text::after {
     left: 0;
 }
 
 /* Unterstrich für aktive Route */
 .v-btn.active-route .btn-text::after {
     left: 0 !important;
+}
+
+.v-list-item {
+    position: relative;
+    /* Damit der Hover-Bereich korrekt ist */
+    padding: 12px 16px;
+    /* Angemessener Klickbereich */
 }
 
 /* Optional: Hover-Überlappung vermeiden
