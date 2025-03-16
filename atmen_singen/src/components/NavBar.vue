@@ -1,6 +1,6 @@
 <template>
     <div class="navbar-wrapper">
-        <v-app-bar class="navbar" :elevation="0" color="white" density="compact">
+        <v-app-bar class="navbar" :elevation="0" color="white">
 
             <v-btn :ripple="false" class="home-btn" icon variant="plain" to="/home">
                 <img src="@/assets/home_button.svg" alt="Home" class="home-logo">
@@ -9,19 +9,23 @@
 
             <v-container class="d-flex justify-center">
                 <div class="d-flex button-group">
-                    <v-btn :ripple="false" variant="plain" to="/atmen">
+                    <v-btn :ripple="false" variant="plain" to="/atmen"
+                        :class="{ 'active-route': $route.path === '/atmen' }">
                         <img src="@/assets/navbar_logo_atmen.svg" width="24" height="24">
                         <div class="btn-text">Atmen</div>
                     </v-btn>
-                    <v-btn :ripple="false" variant="plain" to="/sprechen">
+                    <v-btn :ripple="false" variant="plain" to="/sprechen"
+                        :class="{ 'active-route': $route.path === '/sprechen' }">
                         <img src="@/assets/navbar_logo_sprechen.svg" width="24" height="24">
                         <div class="btn-text">Sprechen</div>
                     </v-btn>
-                    <v-btn :ripple="false" variant="plain" to="/singen">
+                    <v-btn :ripple="false" variant="plain" to="/singen"
+                        :class="{ 'active-route': $route.path === '/singen' }">
                         <img src="@/assets/navbar_logo_singen.svg" width="24" height="24">
                         <div class="btn-text">Singen</div>
                     </v-btn>
-                    <v-btn :ripple="false" variant="plain" to="/klavier">
+                    <v-btn :ripple="false" variant="plain" to="/klavier"
+                        :class="{ 'active-route': $route.path === '/klavier' }">
                         <img src="@/assets/navbar_logo_klavier.svg" width="24" height="24">
                         <div class="btn-text">Klavier</div>
                     </v-btn>
@@ -85,4 +89,14 @@
 .v-btn:hover .btn-text::after {
     left: 0;
 }
+
+/* Unterstrich für aktive Route */
+.v-btn.active-route .btn-text::after {
+    left: 0 !important;
+}
+
+/* Optional: Hover-Überlappung vermeiden
+.v-btn.active-route:hover .btn-text::after {
+    left: 0 !important;
+} */
 </style>
