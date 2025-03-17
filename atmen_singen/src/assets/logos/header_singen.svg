@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Farben_auf_Schriften"
+   data-name="Farben auf Schriften"
+   viewBox="0 0 744 361"
+   version="1.1"
+   sodipodi:docname="header_singen.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.5807068"
+     inkscape:cx="302.08005"
+     inkscape:cy="149.61661"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g7" />
+  <defs
+     id="defs1">
+    <style
+       id="style1">
+      .cls-1 {
+        font-family: DeliusSwashCaps-Regular, 'Delius Swash Caps';
+        font-size: 101.54px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: #b01929;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-2, .cls-5 {
+        stroke-width: 0px;
+      }
+
+      .cls-5 {
+        fill: #fa7926;
+      }
+
+      .cls-6 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-3 {
+        font-family: Kolage-Light, Kolage;
+        font-size: 42.31px;
+        font-variation-settings: 'wght' 300;
+        font-weight: 300;
+      }
+
+      .cls-8 {
+        letter-spacing: -.01em;
+      }
+    </style>
+  </defs>
+  <path
+     class="cls-2"
+     d="m 153.91865,213.45 c 1.71997,24.18 -15.77976,45.48 -40.01939,50.14 l -0.03,0.01 c 0.1,-0.24 0.18,-0.49 0.27,-0.73 0.08,-0.21 0.15,-0.42 0.22,-0.63 0.13999,-0.41 0.25999,-0.82 0.36999,-1.22 0.04,-0.11 0.06,-0.21 0.09,-0.31 0.07,-0.25 0.13,-0.51 0.18,-0.76 0.09,-0.36 0.16999,-0.72 0.21999,-1.07 0.02,-0.08 0.04,-0.17 0.05,-0.25 0.08,-0.45 0.15,-0.89 0.2,-1.31 0.05,-0.41 0.09,-0.8 0.13,-1.18 l 0.77999,-1.01 0.05,-0.06 v -0.02 c 0.90999,-1.45 1.70998,-2.97 2.38997,-4.59 4.05993,-9.55 3.28995,-19.69 -1.23998,-27.46 -2.92996,-5.06 -7.43989,-9.11 -13.2398,-11.34 -12.649806,-4.88 -27.259581,0.5 -35.349456,12.16 -0.03,0.04 -0.05,0.06 -0.06,0.1 -0.749989,1.32 -1.429978,2.72 -2.019969,4.18 -0.169997,0.43 -0.339995,0.86 -0.489993,1.29 0,0 -0.239996,0.58 -0.499992,1.31 -0.119998,0.09 -0.259996,0.2 -0.399994,0.33 0,0 -0.02,0 -0.02,0.02 -13.339795,9.26 -15.199766,28.14 -6.149905,43.45 -7.399886,-8.5 -13.059799,-25 -13.799788,-35.41 -0.669989,-9.35 0.589991,-18.39 3.429947,-26.74 0.05,-0.14 0.09,-0.29 0.139998,-0.42 6.049907,-17.42 16.689743,-27.74 26.799587,-33.81 11.69982,-7.04 22.68965,-8.41 25.029615,-8.58 27.39958,-1.95 51.11921,17.7 52.97919,43.9 z"
+     id="path1"
+     sodipodi:nodetypes="ccccccccccccccccccccccccccccccccc" />
+  <g
+     id="g7"
+     transform="matrix(0.99998458,0,0,1,-0.20897919,0)">
+    <text
+       class="cls-1"
+       transform="translate(228.03,225.01)"
+       id="text6"><tspan
+         class="cls-4"
+         x="0"
+         y="0"
+         id="tspan1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Delius Swash Caps';-inkscape-font-specification:'Delius Swash Caps'">AtemWelt</tspan></text>
+    <path
+       class="cls-5"
+       d="m 249.82,100.38 c -9.71,5.52 -17.44,11.88 -31.46,-10.24 -10.37,-16.36 -13.51,-31.53 -25.18,-40.85 -29.7,-23.71 -31.93,20.72 -31.83,32.01 0.38,45.15 5.08,76.1 5.81,110.92 1.18,56.79 -18.04,93.37 -66.72,84 6.41,1.23 11.39,-6.23 13.68,-12.63 0,0 -0.03,0.01 -0.03,0.01 0.1,-0.24 0.18,-0.49 0.27,-0.73 0.08,-0.21 0.15,-0.42 0.22,-0.63 0.14,-0.41 0.26,-0.82 0.37,-1.22 0.1,-0.36 0.19,-0.71 0.27,-1.07 0.08,-0.36 0.15,-0.71 0.22,-1.07 3.64,-19.58 -16.99,-36.66 -36.73,-32.94 -5.13,0.86 -9.45,2.64 -12.97,5.1 0,0 -0.02,0 -0.02,0.02 -13.34,9.26 -15.2,28.14 -6.15,43.45 0,0 0,0.02 0,0.02 2.53,4.27 5.9,8.27 10.11,11.7 30.8,25.07 88.28,9.68 105.16,-25.95 9.32,-19.69 12.43,-46.62 10.36,-96.36 -1.83,-43.9 2.2,-71.05 13.08,-60.98 18.49,17.12 36.51,31.75 51.12,10.59 1.53,-2.22 2.72,-4.68 3.34,-7.3 1.32,-5.62 -1.11,-6.87 -2.92,-5.85 z m -150.9,163.9 c -0.17,1.2 -0.53,2.36 -1,3.42 -1.04,2.36 -2.55,4.25 -3.44,5.25 -0.44,0.48 -0.72,0.75 -0.72,0.75 0,0 -2.72,-1.94 -4.73,-4.98 -1.07,-1.62 -1.93,-3.55 -2.08,-5.67 -0.04,-0.5 -0.05,-1 -0.04,-1.48 0,-5.46 2.22,-9.81 5.28,-10.03 2.76,-0.2 5.32,3.04 6.37,7.64 0,0 0,0 0,0.02 0.22,0.95 0.37,1.96 0.44,3 0.05,0.7 0.02,1.41 -0.08,2.09 z"
+       id="path6" />
+    <text
+       class="cls-3"
+       transform="translate(232.72,279.05)"
+       id="text7"><tspan
+         x="0"
+         y="0"
+         id="tspan7"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Kolage;-inkscape-font-specification:Kolage">Singen</tspan></text>
+  </g>
+</svg>

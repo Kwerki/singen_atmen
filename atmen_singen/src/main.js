@@ -4,6 +4,7 @@ import router from './router'
 import { createVuetify } from 'vuetify'
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
+import '@/assets/main.css'
 
 const vuetify = createVuetify()
 
