@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <header class="header">
-      <img :src="headerImage">
+      <router-link to="/home">
+        <img :src="headerImage">
+      </router-link>
     </header>
 
     <NavBar />
@@ -19,6 +21,7 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 
 const route = useRoute();
+
 
 const headerImage = computed(() => {
   switch (route.path) {
