@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <header class="header">
+    <header class="header d-none d-md-block">
       <router-link to="/home">
         <img :src="headerImage">
       </router-link>
