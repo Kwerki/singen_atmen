@@ -6,13 +6,13 @@
 
 
                 <div class="d-none d-md-flex button-group button-container">
-                    <v-btn :ripple="false" class="home-btn" icon variant="plain" to="/home">
+                    <v-btn :ripple="false"  icon variant="plain" to="/home">
                         <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo">
                     </v-btn>
 
 
                     <v-btn v-for="(item, index) in navItems" :key="index" :ripple="false" variant="plain"
-                        :to="item.route" :class="{ 'active-route': $route.path === item.route }">
+                        :to="item.route" :class="['no-padding-btn',{ 'active-route': $route.path === item.route }]">
                         <div class="btn-underline">{{ item.title }}</div>
                         <img :src="item.icon" width="24" height="24">
                     </v-btn>
@@ -34,7 +34,7 @@
                     </v-btn>
                 </div>
 
-                <v-btn :ripple="false" class="home-btn d-md-none" icon variant="plain" to="/home">
+                <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/home">
                     <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo-mobile">
                 </v-btn>
                 <v-divider class="d-md-none"></v-divider>
@@ -54,14 +54,14 @@
                 <!-- Main Navigation Items -->
                 <v-list-item v-for="(item, index) in navItems" :key="index" :to="item.route"
                     :class="{ 'active-route': $route.path === item.route }">
-                    <div class="btn-underline">{{ item.title }}</div>
+                    <div class="btn-underline v-list-item-mobile ">{{ item.title }}</div>
                     <img :src="item.icon" width="18" height="18" class="ml-2">
                 </v-list-item>
 
                 <!-- Contact Sub-items -->
                 <v-list-item v-for="(item, index) in items" :key="'kontakt-' + index"
-                    @click="handleMenuItemClick(item)">
-                    <div class="btn-underline">{{ item.title }}</div>
+                    @click="handleMenuItemClick(item)" >
+                    <div class="btn-underline v-list-item-mobile">{{ item.title }}</div>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -149,9 +149,32 @@ export default {
 
 
 <style scoped>
+.no-padding-btn {
+    padding: 0;
+}
+
+.v-app-bar {
+  position: relative;
+}
+
+.v-app-bar::after {
+  content: '';
+  width: 100%;
+  height: 1px;
+  background-color: #787272;
+  display: none;
+}
+
+@media (max-width: 959px) {
+  .v-app-bar::after {
+    display: block;
+  }
+}
+
 .button-container {
     position: relative;
     height: 100%;
+    
 }
 
 .button-container::after {
