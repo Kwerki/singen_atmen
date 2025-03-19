@@ -34,6 +34,7 @@
 
 /* Unterstrich Hover-Effekt */
 .btn-underline {
+  display: inline-block;
   position: relative;
   padding-bottom: 2px;
   overflow: hidden;

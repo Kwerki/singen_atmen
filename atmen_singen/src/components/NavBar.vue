@@ -35,17 +35,21 @@
                 </div>
 
                 <v-btn :ripple="false" class="home-btn d-md-none" icon variant="plain" to="/home">
-                    <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo">
+                    <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo-mobile">
                 </v-btn>
                 <v-divider class="d-md-none"></v-divider>
-                <v-app-bar-nav-icon class="d-md-none" :ripple="false" @click.stop="drawer = !drawer" />
+                <v-app-bar-nav-icon class="d-md-none" :ripple="false" @click.stop="drawer = !drawer">
+                    <v-icon :class="{ 'active': drawer }" style="font-size: 32px">
+                        {{ drawer ? 'mdi-close' : 'mdi-menu' }}
+                    </v-icon>
+                </v-app-bar-nav-icon>
 
             </v-container>
         </v-app-bar>
 
 
         <!-- Mobile Navigation Drawer -->
-        <v-navigation-drawer v-model="drawer" location="right">
+        <v-navigation-drawer v-model="drawer" location="right" temporary class="fullscreen-drawer" :style="drawerStyle">
             <v-list variant="plain">
                 <!-- Main Navigation Items -->
                 <v-list-item v-for="(item, index) in navItems" :key="index" :to="item.route"
@@ -67,7 +71,7 @@
 </template>
 
 <script>
-import { useDisplay} from 'vuetify'
+import { useDisplay } from 'vuetify'
 import atmenIcon from '@/assets/logos/navbar_logo_atmen.svg';
 import sprechenIcon from '@/assets/logos/navbar_logo_sprechen.svg';
 import singenIcon from '@/assets/logos/navbar_logo_singen.svg';
@@ -79,7 +83,7 @@ export default {
         const display = useDisplay()
         return { display }
     },
-    
+
     mounted() {
         window.addEventListener('resize', this.handleResize)
     },
@@ -89,6 +93,10 @@ export default {
 
     data: () => ({
         drawer: false,
+        drawerStyle: {
+            transform: 'translateX(100%)',
+            transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+        },
         menu: false,
         items: [
             { title: 'Termin' },
@@ -118,6 +126,13 @@ export default {
             }
         ]
     }),
+    watch: {
+        drawer(newVal) {
+            this.drawerStyle.transform = newVal
+                ? 'translateX(0)'
+                : 'translateX(100%)';
+        }
+    },
     methods: {
         handleMenuItemClick(item) {
             this.menu = false;
@@ -134,8 +149,6 @@ export default {
 
 
 <style scoped>
-
-
 .button-container {
     position: relative;
     height: 100%;
@@ -165,6 +178,11 @@ export default {
     height: 55px;
 }
 
+.home-logo-mobile {
+    width: 60px;
+    height: 60px;
+}
+
 .button-group {
     gap: 6vw;
     justify-content: center;
@@ -172,13 +190,38 @@ export default {
 }
 
 .v-list-item {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
+  position: relative; 
 }
+
+.v-list-item img {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0; 
+}
+
+
 
 .active-route .btn-underline {
     font-weight: 600;
+}
+
+.v-icon {
+    transition: transform 0.3s ease-in-out;
+}
+
+.v-icon.active {
+    transform: rotate(180deg);
+}
+
+.fullscreen-drawer {
+    width: 100% !important;
+    height: 100vh;
+    transform: translateX(100%);
+}
+
+.v-navigation-drawer--active {
+    transform: translateX(0) !important;
 }
 </style>
