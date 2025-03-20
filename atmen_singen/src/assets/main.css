@@ -24,6 +24,7 @@
   font-family: 'Kolage Light', sans-serif;
   font-size: 15px;
   font-weight: bold;
+  padding: 0;
 }
 
 .v-list-item {
@@ -36,6 +37,7 @@
   font-family: 'Kolage Light', sans-serif;
   font-size: 18px;
   font-weight: bold;
+  margin-left: 15px;
 }
 
 

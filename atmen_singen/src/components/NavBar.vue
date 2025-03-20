@@ -6,13 +6,13 @@
 
 
                 <div class="d-none d-md-flex button-group button-container">
-                    <v-btn :ripple="false"  icon variant="plain" to="/home">
+                    <v-btn :ripple="false" icon variant="plain" to="/home">
                         <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo">
                     </v-btn>
 
 
                     <v-btn v-for="(item, index) in navItems" :key="index" :ripple="false" variant="plain"
-                        :to="item.route" :class="['no-padding-btn',{ 'active-route': $route.path === item.route }]">
+                        :to="item.route" :class="{ 'active-route': $route.path === item.route }">
                         <div class="btn-underline">{{ item.title }}</div>
                         <img :src="item.icon" width="24" height="24">
                     </v-btn>
@@ -25,8 +25,9 @@
                             <v-list>
                                 <v-list-item v-for="(item, index) in items" :key="index" :value="index" variant="plain"
                                     @click="handleMenuItemClick(item)" :ripple="false" style="cursor: pointer;">
-                                    <v-list-item-title>
+                                    <v-list-item-title class="icons-spacing-dropdown-menu-desktop" >
                                         <div class="btn-underline">{{ item.title }}</div>
+                                        <v-icon class="ml-2">{{ item.icon }}</v-icon>
                                     </v-list-item-title>
                                 </v-list-item>
                             </v-list>
@@ -35,11 +36,11 @@
                 </div>
 
                 <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/home">
-                    <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo-mobile">
+                    <img :src="homeButtonLogo" alt="Home" class="home-logo-mobile">
                 </v-btn>
-                <v-divider class="d-md-none"></v-divider>
+                <v-spacer class="d-md-none"></v-spacer>
                 <v-app-bar-nav-icon class="d-md-none" :ripple="false" @click.stop="drawer = !drawer">
-                    <v-icon :class="{ 'active': drawer }" style="font-size: 32px">
+                    <v-icon :class="{ 'active': drawer }" >
                         {{ drawer ? 'mdi-close' : 'mdi-menu' }}
                     </v-icon>
                 </v-app-bar-nav-icon>
@@ -54,14 +55,19 @@
                 <!-- Main Navigation Items -->
                 <v-list-item v-for="(item, index) in navItems" :key="index" :to="item.route"
                     :class="{ 'active-route': $route.path === item.route }">
+                    <v-list-item-title class="icons-spacing-dropdown-menu">
                     <div class="btn-underline v-list-item-mobile ">{{ item.title }}</div>
-                    <img :src="item.icon" width="18" height="18" class="ml-2">
+                    <v-icon class="ml-2"><img :src="item.icon" width="22" height="22" ></v-icon>
+                    </v-list-item-title>
                 </v-list-item>
 
-                <!-- Contact Sub-items -->
-                <v-list-item v-for="(item, index) in items" :key="'kontakt-' + index"
-                    @click="handleMenuItemClick(item)" >
-                    <div class="btn-underline v-list-item-mobile">{{ item.title }}</div>
+                <v-list-item v-for="(item, index) in items" :key="'kontakt-' + index" @click="handleMenuItemClick(item)"
+                    style="cursor: pointer;">
+                    <v-list-item-title class="icons-spacing-dropdown-menu">
+                        <div class="btn-underline v-list-item-mobile">{{ item.title }}</div>
+                        <v-icon class="ml-2"
+                        >{{ item.icon }}</v-icon>
+                    </v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
@@ -72,16 +78,34 @@
 
 <script>
 import { useDisplay } from 'vuetify'
+import { useRoute } from 'vue-router';
 import atmenIcon from '@/assets/logos/navbar_logo_atmen.svg';
 import sprechenIcon from '@/assets/logos/navbar_logo_sprechen.svg';
 import singenIcon from '@/assets/logos/navbar_logo_singen.svg';
 import klavierIcon from '@/assets/logos/navbar_logo_klavier.svg';
 
+import defaultHome from '@/assets/logos/home_button_mobile.svg';
+import buttonAtmen from '@/assets/logos/button_atmen.svg';
+import buttonSprechen from '@/assets/logos/button_sprechen.svg';
+import buttonSingen from '@/assets/logos/button_singen.svg';
+import buttonKlavier from '@/assets/logos/button_klavier.svg';
 
 export default {
     setup() {
         const display = useDisplay()
-        return { display }
+        const route = useRoute();
+        return { display, route }
+    },
+
+    computed: {
+        homeButtonLogo() {
+            const route = this.$route.path;
+            if (route === '/atmen') return buttonAtmen;
+            if (route === '/sprechen') return buttonSprechen;
+            if (route === '/singen') return buttonSingen;
+            if (route === '/klavier') return buttonKlavier;
+            return defaultHome;
+        }
     },
 
     mounted() {
@@ -99,9 +123,9 @@ export default {
         },
         menu: false,
         items: [
-            { title: 'Termin' },
-            { title: 'Über Mich' },
-            { title: 'Youtube' },
+            { title: 'Termin', icon: 'mdi-calendar' },
+            { title: 'Über Mich', icon: 'mdi-account' },
+            { title: 'Youtube', icon: 'mdi-youtube' },
         ],
         navItems: [
             {
@@ -149,32 +173,41 @@ export default {
 
 
 <style scoped>
-.no-padding-btn {
-    padding: 0;
+.icons-spacing-dropdown-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+
+.icons-spacing-dropdown-menu-desktop{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .v-app-bar {
-  position: relative;
+    position: relative;
 }
 
 .v-app-bar::after {
-  content: '';
-  width: 100%;
-  height: 1px;
-  background-color: #787272;
-  display: none;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: #787272;
+    display: none;
 }
 
 @media (max-width: 959px) {
-  .v-app-bar::after {
-    display: block;
-  }
+    .v-app-bar::after {
+        display: block;
+    }
 }
 
 .button-container {
     position: relative;
     height: 100%;
-    
+
 }
 
 .button-container::after {
@@ -213,18 +246,8 @@ export default {
 }
 
 .v-list-item {
-  position: relative; 
+    position: relative;
 }
-
-.v-list-item img {
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 0; 
-}
-
-
 
 .active-route .btn-underline {
     font-weight: 600;
