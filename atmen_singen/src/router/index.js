@@ -5,6 +5,8 @@ import SingenView from '@/views/SingenView.vue'
 import SprechenView from '@/views/SprechenView.vue'
 import HomeView from '@/views/HomeView.vue'
 import TerminView from '@/views/TerminView.vue'
+import AboutMeView from '@/views/AboutMeView.vue'
+import YoutubeView from '@/views/YoutubeView.vue'
 
 const routes = [
   {
@@ -40,6 +42,16 @@ const routes = [
     path: '/termin',
     name: 'termin',
     component: TerminView,
+  },
+  {
+    path: '/aboutme',
+    name: 'aboutme',
+    component: AboutMeView,
+  },
+  {
+    path: '/youtube',
+    name: 'youtube',
+    component: YoutubeView,
   },
 ]
 

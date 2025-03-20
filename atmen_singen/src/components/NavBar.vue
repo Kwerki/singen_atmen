@@ -25,7 +25,7 @@
                             <v-list>
                                 <v-list-item v-for="(item, index) in items" :key="index" :value="index" variant="plain"
                                     @click="handleMenuItemClick(item)" :ripple="false" style="cursor: pointer;">
-                                    <v-list-item-title class="icons-spacing-dropdown-menu-desktop" >
+                                    <v-list-item-title class="icons-spacing-dropdown-menu-desktop">
                                         <div class="btn-underline">{{ item.title }}</div>
                                         <v-icon class="ml-2">{{ item.icon }}</v-icon>
                                     </v-list-item-title>
@@ -40,7 +40,7 @@
                 </v-btn>
                 <v-spacer class="d-md-none"></v-spacer>
                 <v-app-bar-nav-icon class="d-md-none" :ripple="false" @click.stop="drawer = !drawer">
-                    <v-icon :class="{ 'active': drawer }" >
+                    <v-icon :class="{ 'active': drawer }">
                         {{ drawer ? 'mdi-close' : 'mdi-menu' }}
                     </v-icon>
                 </v-app-bar-nav-icon>
@@ -52,21 +52,28 @@
         <!-- Mobile Navigation Drawer -->
         <v-navigation-drawer v-model="drawer" location="right" temporary class="fullscreen-drawer" :style="drawerStyle">
             <v-list variant="plain">
+                <v-list-item to="/home" class="d-md-none" :class="{ 'active-route': $route.path === '/home' }">
+                    <v-list-item-title class="icons-spacing-dropdown-menu">
+                        <div class="btn-underline v-list-item-mobile">Home</div>
+                        <v-icon class="ml-2">mdi-home</v-icon>
+                    </v-list-item-title>
+                </v-list-item>
+
+
                 <!-- Main Navigation Items -->
                 <v-list-item v-for="(item, index) in navItems" :key="index" :to="item.route"
                     :class="{ 'active-route': $route.path === item.route }">
                     <v-list-item-title class="icons-spacing-dropdown-menu">
-                    <div class="btn-underline v-list-item-mobile ">{{ item.title }}</div>
-                    <v-icon class="ml-2"><img :src="item.icon" width="22" height="22" ></v-icon>
+                        <div class="btn-underline v-list-item-mobile ">{{ item.title }}</div>
+                        <v-icon class="ml-2"><img :src="item.icon" width="22" height="22"></v-icon>
                     </v-list-item-title>
                 </v-list-item>
 
                 <v-list-item v-for="(item, index) in items" :key="'kontakt-' + index" @click="handleMenuItemClick(item)"
-                    style="cursor: pointer;">
+                    style="cursor: pointer;"  :class="{ 'active-route': $route.path === item.route }" :to="item.route">
                     <v-list-item-title class="icons-spacing-dropdown-menu">
                         <div class="btn-underline v-list-item-mobile">{{ item.title }}</div>
-                        <v-icon class="ml-2"
-                        >{{ item.icon }}</v-icon>
+                        <v-icon class="ml-2">{{ item.icon }}</v-icon>
                     </v-list-item-title>
                 </v-list-item>
             </v-list>
@@ -123,9 +130,21 @@ export default {
         },
         menu: false,
         items: [
-            { title: 'Termin', icon: 'mdi-calendar' },
-            { title: 'Über Mich', icon: 'mdi-account' },
-            { title: 'Youtube', icon: 'mdi-youtube' },
+            {
+                title: 'Termin',
+                icon: 'mdi-calendar',
+                route: '/termin'
+            },
+            {
+                title: 'Über Mich',
+                icon: 'mdi-account',
+                route: '/aboutme'
+            },
+            {
+                title: 'Youtube',
+                icon: 'mdi-youtube',
+                route: '/youtube'
+            },
         ],
         navItems: [
             {
@@ -147,7 +166,7 @@ export default {
                 title: 'Klavier',
                 route: '/klavier',
                 icon: klavierIcon
-            }
+            },
         ]
     }),
     watch: {
@@ -159,6 +178,7 @@ export default {
     },
     methods: {
         handleMenuItemClick(item) {
+            this.$router.push(item.route)
             this.menu = false;
             this.drawer = false;
         },
@@ -174,16 +194,16 @@ export default {
 
 <style scoped>
 .icons-spacing-dropdown-menu {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 15px;
 }
 
-.icons-spacing-dropdown-menu-desktop{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.icons-spacing-dropdown-menu-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .v-app-bar {

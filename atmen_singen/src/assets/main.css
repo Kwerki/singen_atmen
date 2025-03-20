@@ -69,3 +69,7 @@
 .v-btn.active-route .btn-underline::after {
   left: 0 !important;
 }
+
+.v-list-item.active-route .btn-underline::after {
+  left: 0 !important;
+}
