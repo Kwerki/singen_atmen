@@ -8,7 +8,7 @@
 
     <NavBar />
 
-    <v-main>
+    <v-main class="main-container">
       <router-view />
     </v-main>
   </v-app>
@@ -48,4 +48,12 @@ const headerImage = computed(() => {
   margin: auto;
   width: 25%;
 }
+
+
+.main-container {
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 16px; 
+}
+
 </style>

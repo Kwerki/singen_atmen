@@ -1,7 +1,7 @@
 <template>
 
-    <v-app>
-        <v-app-bar :elevation="0" color="white">
+   
+        <v-app-bar :elevation="0" color="white" style="position: static; margin-top: 0;">
             <v-container class="d-flex justify-center">
 
 
@@ -78,7 +78,7 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-    </v-app>
+   
 
 
 </template>

@@ -7,7 +7,7 @@ import vuetify from 'vite-plugin-vuetify'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/singen_atmen/',
   plugins: [vue(), vueDevTools(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
