@@ -52,8 +52,8 @@ const headerImage = computed(() => {
 
 .main-container {
   max-width: 1200px; 
-  margin: 0 auto;
-  padding: 0 16px; 
+  margin: auto;
+  width: 40%;
 }
 
 </style>

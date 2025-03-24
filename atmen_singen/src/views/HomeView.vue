@@ -6,7 +6,7 @@
         <!-- Atemtechnik Card -->
         <div class="grid-item">
           <div class="image-wrapper">
-            <img src="../assets/atemtechnik.jpg" alt="Atemtechnik Visual" class="hover-scale">
+            <img src="../assets/home_logos/atem.jpg" alt="Atemtechnik Visual" class="hover-scale">
           </div>
           <h3 class="item-title slide-up">Atemtechnik</h3>
           <p class="item-text">Entdecken Sie die Kraft des bewussten Atems</p>
@@ -16,7 +16,7 @@
         <!-- Vokalexpression Card -->
         <div class="grid-item">
           <div class="image-wrapper">
-            <img src="../assets/vokal.jpg" alt="Vokalexpression Visual" class="hover-scale">
+            <img src="../assets/home_logos/sprechen.jpg" alt="Vokalexpression Visual" class="hover-scale">
           </div>
           <h3 class="item-title slide-up">Vokalexpression</h3>
           <p class="item-text">Ihre Stimme als einzigartiges Ausdrucksmittel</p>
@@ -26,7 +26,7 @@
         <!-- Instrumentalpraxis Card -->
         <div class="grid-item">
           <div class="image-wrapper">
-            <img src="../assets/klavier.jpg" alt="Klavierpraxis Visual" class="hover-scale">
+            <img src="../assets/home_logos/klavier.jpg" alt="Klavierpraxis Visual" class="hover-scale">
           </div>
           <h3 class="item-title slide-up">Instrumentalpraxis</h3>
           <p class="item-text">Meisterschaft zwischen Noten und Emotionen</p>
@@ -36,7 +36,7 @@
         <!-- Gesangskunst Card -->
         <div class="grid-item">
           <div class="image-wrapper">
-            <img src="../assets/gesang.jpg" alt="Gesangskunst Visual" class="hover-scale">
+            <img src="../assets/home_logos/singen.jpg" alt="Gesangskunst Visual" class="hover-scale">
           </div>
           <h3 class="item-title slide-up">Gesangskunst</h3>
           <p class="item-text">Wo Technik auf Herzschlag trifft</p>
