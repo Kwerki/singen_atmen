@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app class="app-container">
     <header class="header d-none d-md-block">
       <router-link to="/home">
         <img :src="headerImage">
@@ -53,7 +53,11 @@ const headerImage = computed(() => {
 .main-container {
   max-width: 1200px; 
   margin: auto;
-  width: 40%;
+  width: 80%;
 }
 
+
+.app-container {
+  background: linear-gradient(to bottom, #ffffff, #f0f4f8);
+}
 </style>
