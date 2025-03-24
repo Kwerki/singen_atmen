@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  
 
 
     <v-row>
@@ -19,9 +19,10 @@
               <div class="text-subtitle-1">{{ card.subtitle }}</div>
             </v-card-text>
 
-            
+
 
             <v-card-actions>
+              <v-spacer></v-spacer>
               <v-btn :ripple="false" variant="plain" :to="card.route">
                 <div class="btn-underline">Mehr Erfahren</div>
               </v-btn>
@@ -30,7 +31,7 @@
         </v-hover>
       </v-col>
     </v-row>
-  </div>
+
 </template>
 
 <script setup>
@@ -69,7 +70,6 @@ const cards = ref([
 </script>
 
 <style scoped>
-
 .custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
@@ -100,6 +100,11 @@ const cards = ref([
   transform: translateZ(0);
   transition: none !important;
   pointer-events: none;
+}
+
+.zoom-effect {
+  transform: translateY(-5px);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
