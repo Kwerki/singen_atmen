@@ -8,10 +8,12 @@
           <v-card v-bind="props" :elevation="isHovering ? 12 : 2" :class="{ 'zoom-effect': isHovering }"
             class="custom-card">
 
-            <v-img :src="card.image" height="300px" cover class="align-end"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
-              <v-card-title class="text-white">{{ card.title }}</v-card-title>
-            </v-img>
+            <div class="image-wrapper">
+              <v-img :src="card.image" height="300px" cover class="zoom-image"
+                gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
+              </v-img>
+              <v-card-title class="text-white image-title">{{ card.title }}</v-card-title>
+            </div>
 
             <v-card-text>
               <div class="text-subtitle-1">{{ card.subtitle }}</div>
@@ -67,21 +69,38 @@ const cards = ref([
 </script>
 
 <style scoped>
-.zoom-effect {
-  transform: translateY(-5px);
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
-.v-card {
+.custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: #e6cefd;
+  overflow: hidden;
 }
 
-.v-card-reveal {
-  background: rgb(255, 255, 255);
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.image-wrapper {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
 }
+
+.zoom-image {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center center;
+}
+
+.v-card:hover .zoom-image {
+  transform: scale(1.1);
+}
+
+.image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  transform: translateZ(0);
+  transition: none !important;
+  pointer-events: none;
+}
+
+
 </style>

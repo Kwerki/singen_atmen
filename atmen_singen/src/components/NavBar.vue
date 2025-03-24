@@ -260,7 +260,7 @@ export default {
 }
 
 .button-group {
-    gap: 6vw;
+    gap: 8vw;
     justify-content: center;
     align-items: center;
 }
