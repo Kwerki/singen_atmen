@@ -5,7 +5,7 @@
     <v-row>
       <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6">
         <v-hover v-slot="{ isHovering, props }">
-          <v-card v-bind="props" :elevation="isHovering ? 12 : 2" :class="{ 'zoom-effect': isHovering }"
+          <v-card v-bind="props" :elevation="isHovering ? 6 : 2" :class="{ 'zoom-effect': isHovering }"
             class="custom-card">
 
             <div class="image-wrapper">
@@ -21,12 +21,11 @@
 
 
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
+            <v-card-text>
               <v-btn :ripple="false" variant="plain" :to="card.route">
                 <div class="btn-underline">Mehr Erfahren</div>
               </v-btn>
-            </v-card-actions>
+            </v-card-text>
           </v-card>
         </v-hover>
       </v-col>
@@ -42,30 +41,38 @@ const cards = ref([
     title: 'Vokalexpression',
     subtitle: 'Ihre Stimme als einzigartiges Ausdrucksmittel',
     image: new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
-    route: '/sprechen',
-    isRevealed: false
+    route: '/singen_atmen/sprechen',
   },
   {
     title: 'Atemtechnik',
     subtitle: 'Entdecken Sie die Kraft des bewussten Atems',
     image: new URL('@/assets/home_logos/atem.jpg', import.meta.url).href,
-    route: '/atmen',
-    isRevealed: false
+    route: '/singen_atmen/atmen',
   },
   {
     title: 'Klavierunterricht',
     subtitle: 'Meisterschaft zwischen Noten und Emotionen',
     image: new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
-    route: '/klavier',
-    isRevealed: false
+    route: '/singen_atmen/klavier',
   },
   {
     title: 'Gesangskunst',
     subtitle: 'Wo Technik auf Herzschlag trifft',
     image: new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
-    route: '/singen',
-    isRevealed: false
-  }
+    route: '/singen_atmen/singen',
+  },
+  {
+    title: 'Über Mich',
+    subtitle: 'Mein Name ist Antje und ich bin Logopädin, Musikerin und Singerin',
+    image: new URL('@/assets/home_logos/übermich.jpg', import.meta.url).href,
+    route: '/singen_atmen/singen',
+  },
+  {
+    title: 'Youtube',
+    subtitle: 'Beispiele einiger Stücke auf Youtube',
+    image: new URL('@/assets/home_logos/youtube.jpg', import.meta.url).href,
+    route: '/singen_atmen/singen',
+  },
 ]);
 </script>
 

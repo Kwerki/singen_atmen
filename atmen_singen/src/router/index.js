@@ -10,46 +10,46 @@ import YoutubeView from '@/views/YoutubeView.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '/singen_atmen/',
     redirect: { name: 'home' },
   },
   {
-    path: '/home',
+    path: '/singen_atmen/home',
     name: 'home',
     component: HomeView,
   },
   {
-    path: '/atmen',
+    path: '/singen_atmen/atmen',
     name: 'atmen',
     component: AtmenView,
   },
   {
-    path: '/klavier',
+    path: '/singen_atmen/klavier',
     name: 'klavier',
     component: KlavierView,
   },
   {
-    path: '/singen',
+    path: '/singen_atmen/singen',
     name: 'singen',
     component: SingenView,
   },
   {
-    path: '/sprechen',
+    path: '/singen_atmen/sprechen',
     name: 'sprechen',
     component: SprechenView,
   },
   {
-    path: '/termin',
+    path: '/singen_atmen/termin',
     name: 'termin',
     component: TerminView,
   },
   {
-    path: '/aboutme',
+    path: '/singen_atmen/aboutme',
     name: 'aboutme',
     component: AboutMeView,
   },
   {
-    path: '/youtube',
+    path: '/singen_atmen/youtube',
     name: 'youtube',
     component: YoutubeView,
   },

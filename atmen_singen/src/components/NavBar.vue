@@ -6,7 +6,7 @@
 
 
                 <div class="d-none d-md-flex button-group button-container">
-                    <v-btn :ripple="false" icon variant="plain" to="/home">
+                    <v-btn :ripple="false" icon variant="plain" to="/singen_atmen/home">
                         <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo">
                     </v-btn>
 
@@ -35,7 +35,7 @@
                     </v-btn>
                 </div>
 
-                <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/home">
+                <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/singen_atmen/home">
                     <img :src="homeButtonLogo" alt="Home" class="home-logo-mobile">
                 </v-btn>
                 <v-spacer class="d-md-none"></v-spacer>
@@ -133,38 +133,38 @@ export default {
             {
                 title: 'Termin',
                 icon: 'mdi-calendar',
-                route: '/termin'
+                route: '/singen_atmen/termin'
             },
             {
                 title: 'Über Mich',
                 icon: 'mdi-account',
-                route: '/aboutme'
+                route: '/singen_atmen/aboutme'
             },
             {
                 title: 'Youtube',
                 icon: 'mdi-youtube',
-                route: '/youtube'
+                route: '/singen_atmen/youtube'
             },
         ],
         navItems: [
             {
                 title: 'Atmen',
-                route: '/atmen',
+                route: '/singen_atmen/atmen',
                 icon: atmenIcon
             },
             {
                 title: 'Sprechen',
-                route: '/sprechen',
+                route: '/singen_atmen/sprechen',
                 icon: sprechenIcon
             },
             {
                 title: 'Singen',
-                route: '/singen',
+                route: '/singen_atmen/singen',
                 icon: singenIcon
             },
             {
                 title: 'Klavier',
-                route: '/klavier',
+                route: '/singen_atmen/klavier',
                 icon: klavierIcon
             },
         ]
