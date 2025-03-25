@@ -12,11 +12,11 @@
             <v-img :src="card.image" height="300px" cover class="zoom-image"
               gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
             </v-img>
-            <v-card-title class="text-white image-title">{{ card.title }}</v-card-title>
+            <v-card-title class="text-white h image-title h2-style">{{ card.title }}</v-card-title>
           </div>
 
           <v-card-text>
-            <div class="text-subtitle-1">{{ card.subtitle }}</div>
+            <div class="font-inter-regular">{{ card.subtitle }}</div>
           </v-card-text>
 
 
@@ -63,7 +63,7 @@ const cards = ref([
   },
   {
     title: 'Über Mich',
-    subtitle: 'Mein Name ist Antje und ich bin Logopädin, Musikerin, Singerin und Mutter',
+    subtitle: 'Ich bin Antje – Logopädin, Musikerin, Sängerin und Mutter',
     image: new URL('@/assets/home_logos/übermich.jpg', import.meta.url).href,
     route: '/aboutme',
   },
@@ -80,7 +80,7 @@ const cards = ref([
 .custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: #FFD580;
+  background-color: #F2D394;
   overflow: hidden;
 }
 
