@@ -6,7 +6,7 @@
 
 
                 <div class="d-none d-md-flex button-group button-container">
-                    <v-btn :ripple="false" icon variant="plain" to="/singen_atmen/home">
+                    <v-btn :ripple="false" icon variant="plain" to="/home">
                         <img src="@/assets/logos/home_button.svg" alt="Home" class="home-logo">
                     </v-btn>
 
@@ -35,7 +35,7 @@
                     </v-btn>
                 </div>
 
-                <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/singen_atmen/home">
+                <v-btn :ripple="false" class=" d-md-none" icon variant="plain" to="/home">
                     <img :src="homeButtonLogo" alt="Home" class="home-logo-mobile">
                 </v-btn>
                 <v-spacer class="d-md-none"></v-spacer>
@@ -52,7 +52,7 @@
         <!-- Mobile Navigation Drawer -->
         <v-navigation-drawer v-model="drawer" location="right" temporary class="fullscreen-drawer" :style="drawerStyle">
             <v-list variant="plain">
-                <v-list-item to="/singen_atmen/home" class="d-md-none" :class="{ 'active-route': $route.path === '/singen_atmen/home' }">
+                <v-list-item to="/home" class="d-md-none" :class="{ 'active-route': $route.path === '/home' }">
                     <v-list-item-title class="icons-spacing-dropdown-menu">
                         <div class="btn-underline v-list-item-mobile">Home</div>
                         <v-icon class="ml-2">mdi-home</v-icon>
@@ -133,38 +133,38 @@ export default {
             {
                 title: 'Termin',
                 icon: 'mdi-calendar',
-                route: '/singen_atmen/termin'
+                route: '/termin'
             },
             {
                 title: 'Über Mich',
                 icon: 'mdi-account',
-                route: '/singen_atmen/aboutme'
+                route: '/aboutme'
             },
             {
                 title: 'Youtube',
                 icon: 'mdi-youtube',
-                route: '/singen_atmen/youtube'
+                route: '/youtube'
             },
         ],
         navItems: [
             {
                 title: 'Atmen',
-                route: '/singen_atmen/atmen',
+                route: '/atmen',
                 icon: atmenIcon
             },
             {
                 title: 'Sprechen',
-                route: '/singen_atmen/sprechen',
+                route: '/sprechen',
                 icon: sprechenIcon
             },
             {
                 title: 'Singen',
-                route: '/singen_atmen/singen',
+                route: '/singen',
                 icon: singenIcon
             },
             {
                 title: 'Klavier',
-                route: '/singen_atmen/klavier',
+                route: '/klavier',
                 icon: klavierIcon
             },
         ]

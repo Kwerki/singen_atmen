@@ -11,6 +11,7 @@
     <v-main class="main-container">
       <router-view />
     </v-main>
+    <Footer />
   </v-app>
 </template>
 
@@ -19,19 +20,20 @@ import { RouterView } from 'vue-router'
 import NavBar from '@/components/NavBar.vue'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import Footer from '@/components/Footer.vue'
 
 const route = useRoute();
 
 
 const headerImage = computed(() => {
   switch (route.path) {
-    case '/singen_atmen/atmen':
+    case '/atmen':
       return new URL('@/assets/logos/header_atmen.svg', import.meta.url).href;
-    case '/singen_atmen/klavier':
+    case '/klavier':
       return new URL('@/assets/logos/header_klavier.svg', import.meta.url).href;
-    case '/singen_atmen/singen':
+    case '/singen':
       return new URL('@/assets/logos/header_singen.svg', import.meta.url).href;
-    case '/singen_atmen/sprechen':
+    case '/sprechen':
       return new URL('@/assets/logos/header_sprechen.svg', import.meta.url).href;
     default:
       return new URL('@/assets/logos/header_home.svg', import.meta.url).href;
