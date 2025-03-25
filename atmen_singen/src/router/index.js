@@ -8,6 +8,7 @@ import TerminView from '@/views/TerminView.vue'
 import AboutMeView from '@/views/AboutMeView.vue'
 import YoutubeView from '@/views/YoutubeView.vue'
 
+
 const routes = [
   {
     path: '/',
@@ -56,7 +57,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(), 
   routes,
 })
 
