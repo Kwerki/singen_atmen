@@ -1,5 +1,5 @@
 <template>
-    <v-footer class="footer">
+    <v-footer class="main-footer">
         <v-container >
             <v-row class="align-center  justify-space-between">
                 <v-col cols="12" md="4" class="d-flex align-center mobile-center">
@@ -29,7 +29,7 @@
             </v-row>
         </v-container>
     </v-footer>
-    <v-footer class="black-box">
+    <v-footer class="black-box" absolute>
     <v-container>
       <v-row class="align-center justify-center">
         <v-col cols="auto">
@@ -47,8 +47,21 @@ import defaultHome from '@/assets/logos/home_button.svg';
 </script>
 
 <style scoped>
+.main-footer {
+  margin-top: 200px;
+  background: #F2D394;
+  border-top: 1px solid #787272;
+  position: relative;
+  z-index: 1;
+  min-height: 150px !important;
+}
+
 .black-box {
   background-color: #000;
+  position: relative;
+  z-index: 0;
+  height: auto !important;
+  padding: 12px 0;
 }
 
 .v-btn.text-white {
@@ -56,12 +69,7 @@ import defaultHome from '@/assets/logos/home_button.svg';
     font-size: 0.9rem;
 }
 
-.footer {
-    margin-top: 200px;
-    min-height: 150px;
-    background: #F2D394;
-    border-top: 1px solid #787272;
-}
+
 
 
 .footer-link-underline {
