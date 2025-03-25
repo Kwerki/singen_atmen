@@ -63,15 +63,15 @@ const cards = ref([
   },
   {
     title: 'Über Mich',
-    subtitle: 'Mein Name ist Antje und ich bin Logopädin, Musikerin und Singerin',
+    subtitle: 'Mein Name ist Antje und ich bin Logopädin, Musikerin, Singerin und Mutter',
     image: new URL('@/assets/home_logos/übermich.jpg', import.meta.url).href,
-    route: '/singen_atmen/singen',
+    route: '/singen_atmen/aboutme',
   },
   {
     title: 'Youtube',
     subtitle: 'Beispiele einiger Stücke auf Youtube',
     image: new URL('@/assets/home_logos/youtube.jpg', import.meta.url).href,
-    route: '/singen_atmen/singen',
+    route: '/singen_atmen/youtube',
   },
 ]);
 </script>
@@ -80,7 +80,7 @@ const cards = ref([
 .custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: #e6cefd;
+  background-color: #FFD580;
   overflow: hidden;
 }
 

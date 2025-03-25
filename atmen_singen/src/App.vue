@@ -25,13 +25,13 @@ const route = useRoute();
 
 const headerImage = computed(() => {
   switch (route.path) {
-    case '/atmen':
+    case '/singen_atmen/atmen':
       return new URL('@/assets/logos/header_atmen.svg', import.meta.url).href;
-    case '/klavier':
+    case '/singen_atmen/klavier':
       return new URL('@/assets/logos/header_klavier.svg', import.meta.url).href;
-    case '/singen':
+    case '/singen_atmen/singen':
       return new URL('@/assets/logos/header_singen.svg', import.meta.url).href;
-    case '/sprechen':
+    case '/singen_atmen/sprechen':
       return new URL('@/assets/logos/header_sprechen.svg', import.meta.url).href;
     default:
       return new URL('@/assets/logos/header_home.svg', import.meta.url).href;
@@ -46,14 +46,20 @@ const headerImage = computed(() => {
 .header {
   display: block;
   margin: auto;
-  width: 25%;
+  width: 15%;
 }
 
 
 .main-container {
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: auto;
   width: 80%;
+}
+
+@media (max-width: 959px) {
+  .main-container {
+    width: 95%;
+  }
 }
 
 

@@ -52,7 +52,7 @@
         <!-- Mobile Navigation Drawer -->
         <v-navigation-drawer v-model="drawer" location="right" temporary class="fullscreen-drawer" :style="drawerStyle">
             <v-list variant="plain">
-                <v-list-item to="/home" class="d-md-none" :class="{ 'active-route': $route.path === '/home' }">
+                <v-list-item to="/singen_atmen/home" class="d-md-none" :class="{ 'active-route': $route.path === '/singen_atmen/home' }">
                     <v-list-item-title class="icons-spacing-dropdown-menu">
                         <div class="btn-underline v-list-item-mobile">Home</div>
                         <v-icon class="ml-2">mdi-home</v-icon>
