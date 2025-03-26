@@ -3,7 +3,7 @@
 
 
   <v-row>
-    <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6">
+    <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6" >
       <v-hover v-slot="{ isHovering, props }">
         <v-card v-bind="props" :elevation="isHovering ? 6 : 2" :class="{ 'zoom-effect': isHovering }"
           class="custom-card">
@@ -77,6 +77,7 @@ const cards = ref([
 </script>
 
 <style scoped>
+
 .custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
