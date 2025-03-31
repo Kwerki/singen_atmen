@@ -1,231 +1,257 @@
 <template>
-    <div class="klavier-container">
-      <div class="header-wrapper">
-        <h1 class="h1-style text-center mb-4">Klavierunterricht</h1>
-        <p class="header-subtitle font-inter-regular">
-          Entdecke die Sprache der Musik durch deine Finger
-        </p>
-      </div>
-  
-      <v-row justify="center" class="mt-8">
-        <v-col cols="12" md="10">
-          <v-card class="cta-card mb-8" elevation="2">
-            <div class="text-center pa-6">
-              <p class="font-inter-regular text-h5 mb-4">
-                "Das Klavier ist ein Spiegel der Seele - lass uns gemeinsam deinen Klang finden"
-              </p>
-              <v-btn 
-                variant="text" 
-                to="/termin"
-                class="cta-button"
-              >
-                <span class="btn-content">
-                  Termin vereinbaren
-                  <v-icon icon="mdi-chevron-right" class="ml-2"></v-icon>
-                </span>
-              </v-btn>
-            </div>
-          </v-card>
-  
-          <v-row class="mb-8">
-            <v-col cols="12" md="6">
-              <div class="info-card pa-6">
-                <h2 class="h2-style mb-4">
-                  <v-icon icon="mdi-music-clef-treble" class="mr-2"></v-icon>
-                  Für wen?
-                </h2>
-                <v-chip-group column class="mb-4">
-                  <v-chip variant="outlined" v-for="age in ageGroups" :key="age">
-                    {{ age }}
-                  </v-chip>
-                </v-chip-group>
-                <p class="font-inter-regular">
-                  Individueller Unterricht für jede Altersgruppe - 
-                  vom ersten Kinderlied bis zur klassischen Sonate
-                </p>
-              </div>
-            </v-col>
-  
-            <v-col cols="12" md="6">
-              <div class="info-card pa-6">
-                <h2 class="h2-style mb-4">
-                  <v-icon icon="mdi-clock-outline" class="mr-2"></v-icon>
-                  Flexible Ansätze
-                </h2>
-                <div class="font-inter-regular">
-                  <div class="d-flex align-center mb-2">
-                    <v-icon icon="mdi-ear-hearing" small class="mr-2"></v-icon>
-                    Spiel nach Gehör
-                  </div>
-                  <div class="d-flex align-center mb-2">
-                    <v-icon icon="mdi-book-music" small class="mr-2"></v-icon>
-                    Notenlehre
-                  </div>
-                  <div class="d-flex align-center">
-                    <v-icon icon="mdi-brain" small class="mr-2"></v-icon>
-                    Mentales Training
-                  </div>
-                </div>
-              </div>
-            </v-col>
-          </v-row>
-  
-          <v-expansion-panels variant="popout" class="mb-8">
-            <v-expansion-panel>
-              <v-expansion-panel-title class="h2-style">
-                <v-icon icon="mdi-currency-eur" class="mr-2"></v-icon>
-                Preismodelle
+  <div class="klavier-container">
+    <!-- Hero Section -->
+    <v-row class="hero-section mb-8" align="center">
+      <v-col cols="12" md="6">
+        <img
+          src="@/assets/home_logos/klavier.jpg"
+          
+          class="teacher-portrait rounded-lg"
+          style="width: 100%; height: auto; object-fit: cover;"
+        ></img>
+      </v-col>
+      
+      <v-col cols="12" md="6">
+        <h1 class="h1-style mb-4">Individueller Klavierunterricht</h1>
+        <div class="font-inter-regular mb-4">
+          <v-chip variant="outlined" class="mr-2 mb-2" v-for="badge in badges" :key="badge">
+            {{ badge }}
+          </v-chip>
+        </div>
+        <div class="font-inter-regular text-h5 mb-6">
+          "Lass uns gemeinsam deine musikalische Sprache entwickeln"
+        </div>
+        <v-btn 
+          variant="text" 
+          to="/termin"
+          class="cta-button"
+        >
+          <span class="btn-content">
+            Kostenlose Probestunde buchen
+            <v-icon icon="mdi-arrow-right" class="ml-2"></v-icon>
+          </span>
+        </v-btn>
+      </v-col>
+    </v-row>
+
+    <!-- Teaching Approach -->
+    <v-row class="mb-8">
+      <v-col cols="12" md="4" v-for="(method, index) in methods" :key="index">
+        <v-card class="method-card pa-6">
+          <v-icon :icon="method.icon" size="48" class="mb-4"></v-icon>
+          <h2 class="h2-style mb-3">{{ method.title }}</h2>
+          <p class="font-inter-regular">{{ method.description }}</p>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Lesson Content -->
+    <v-row class="mb-8">
+      <v-col cols="12" md="8">
+        <div class="pa-6 content-card">
+          <h2 class="h1-style mb-4">Dein Unterricht beinhaltet:</h2>
+          <ul class="font-inter-regular">
+            <li v-for="(item, index) in lessonContent" :key="index" class="mb-3">
+              <v-icon icon="mdi-music" class="mr-2"></v-icon>
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </v-col>
+      
+      <v-col cols="12" md="4">
+        <div class="sticky-card pa-6">
+          <h3 class="h2-style mb-4">Preisübersicht</h3>
+          <v-expansion-panels variant="accordion">
+            <v-expansion-panel v-for="(price, index) in pricing" :key="index">
+              <v-expansion-panel-title class="font-inter-regular">
+                {{ price.title }}
               </v-expansion-panel-title>
               <v-expansion-panel-text>
                 <v-table density="compact">
-                  <thead>
-                    <tr>
-                      <th>Modell</th>
-                      <th>Umfang</th>
-                      <th>Preis</th>
-                    </tr>
-                  </thead>
                   <tbody>
-                    <tr v-for="item in pricing" :key="item.model">
-                      <td>{{ item.model }}</td>
-                      <td>{{ item.duration }}</td>
-                      <td>{{ item.price }}</td>
+                    <tr>
+                      <td>Dauer</td>
+                      <td>{{ price.duration }}</td>
+                    </tr>
+                    <tr>
+                      <td>Preis</td>
+                      <td>{{ price.amount }}</td>
                     </tr>
                   </tbody>
                 </v-table>
               </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
-  
-          <v-row class="mb-8">
-            <v-col cols="12" md="8">
-              <div class="pa-6 gradient-card">
-                <h2 class="h2-style mb-4">Deine Vorteile</h2>
-                <div class="font-inter-regular">
-                  <div v-for="(benefit, index) in benefits" :key="index" class="mb-3">
-                    <v-icon icon="mdi-check-circle" class="mr-2"></v-icon>
-                    {{ benefit }}
-                  </div>
+        </div>
+      </v-col>
+    </v-row>
+
+    <!-- Reviews -->
+    <v-row class="mb-8">
+      <v-col cols="12">
+        <h2 class="h1-style text-center mb-6">Stimmen meiner Schüler</h2>
+        <v-row>
+          <v-col cols="12" md="4" v-for="(review, index) in reviews" :key="index">
+            <v-card class="review-card pa-6">
+              <div class="d-flex align-center mb-3">
+                <v-avatar color="primary" size="48" class="mr-3">
+                  <span class="text-white">{{ review.initials }}</span>
+                </v-avatar>
+                <div>
+                  <div class="font-weight-bold">{{ review.name }}</div>
+                  <div class="text-caption">{{ review.age }} Jahre</div>
                 </div>
               </div>
-            </v-col>
-            <v-col cols="12" md="4">
-              <div class="pa-6 tip-card">
-                <h3 class="h2-style mb-3">
-                  <v-icon icon="mdi-lightbulb-on" class="mr-2"></v-icon>
-                  Tipp
-                </h3>
-                <p class="font-inter-regular">
-                  Gute Übungspianos findest du oft kostenlos bei Kleinanzeigen - 
-                  gerne berate ich bei Auswahl und Transport!
-                </p>
-              </div>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
-    </div>
-  </template>
-  
-  <script setup>
-  const ageGroups = [
-    '6-12 Jahre',
-    '13-19 Jahre',
-    '20-39 Jahre',
-    '40+ Jahre'
-  ];
-  
-  const pricing = [
-    { model: 'Jahresabo', duration: '4x monatlich', price: '99€/Monat' },
-    { model: 'Einzelstunde', duration: '45 Minuten', price: '40€' },
-    { model: 'Probestunde', duration: '30 Minuten', price: 'kostenlos' }
-  ];
-  
-  const benefits = [
-    'Steigerung der Konzentrationsfähigkeit',
-    'Entwicklung kreativer Ausdrucksformen',
-    'Stressabbau durch musikalische Entspannung',
-    'Verbesserte motorische Fähigkeiten',
-    'Individueller Lernfortschritt'
-  ];
-  </script>
-  
-  <style scoped>
-  .klavier-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
+              <p class="font-inter-regular">"{{ review.text }}"</p>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </div>
+</template>
+
+<script setup>
+const badges = [
+  'Royal College of Music London',
+  '10+ Jahre Erfahrung',
+  'Diplom-Musikpädagogin'
+];
+
+const methods = [
+  {
+    icon: 'mdi-hand-heart',
+    title: 'Ganzheitlicher Ansatz',
+    description: 'Verbinde Technik mit emotionalem Ausdruck für authentisches Spiel'
+  },
+  {
+    icon: 'mdi-brain',
+    title: 'Mental Coaching',
+    description: 'Überwinde Leistungsdruck durch kreative Freiheit'
+  },
+  {
+    icon: 'mdi-music-circle',
+    title: 'Improvisation',
+    description: 'Entdecke deinen persönlichen Stil jenseits der Noten'
   }
-  
-  .header-wrapper {
-    background: linear-gradient(rgba(242, 211, 148, 0.2), rgba(242, 211, 148, 0.1));
-    padding: 3rem 1rem;
-    border-radius: 16px;
-    margin-bottom: 2rem;
+];
+
+const lessonContent = [
+  'Individueller Lernplan für deine Ziele',
+  'Gehörbildung & Rhythmik',
+  'Harmonielehre verständlich erklärt',
+  'Körperbewusstsein am Instrument',
+  'Repertoire-Aufbau nach deinen Vorlieben',
+  'Vorbereitung auf Auftritte/Vorspiele'
+];
+
+const pricing = [
+  { 
+    title: 'Einzelstunde',
+    duration: '45 Minuten',
+    amount: '40€'
+  },
+  { 
+    title: 'Jahresabo',
+    duration: '4x monatlich',
+    amount: '99€/Monat'
+  },
+  { 
+    title: 'Intensivkurs',
+    duration: '90 Minuten',
+    amount: '70€'
   }
-  
-  .header-subtitle {
-    font-size: 1.4rem;
-    text-align: center;
-    color: #666;
+];
+
+const reviews = [
+  {
+    initials: 'TS',
+    name: 'Thomas Schmidt',
+    age: 34,
+    text: 'Antje versteht es perfekt, Technik mit Leidenschaft zu verbinden'
+  },
+  {
+    initials: 'LM',
+    name: 'Lena Müller',
+    age: 28,
+    text: 'Endlich verstehe ich Musiktheorie praktisch anzuwenden'
+  },
+  {
+    initials: 'JK',
+    name: 'Jana Köhler',
+    age: 42,
+    text: 'Der Unterricht hat mein Verhältnis zum Klavier komplett verändert'
   }
-  
-  .cta-card {
-    background-color: #F2D394;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-  }
-  
-  .cta-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .cta-button {
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-  }
-  
-  .cta-button:hover .btn-content {
-    padding-right: 1.2rem;
-  }
-  
-  .btn-content {
-    display: inline-flex;
-    align-items: center;
-    transition: padding 0.3s ease;
-  }
-  
-  .info-card {
-    background: white;
-    border-radius: 12px;
-    height: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .info-card:hover {
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .gradient-card {
-    background: linear-gradient(45deg, #F2D394 0%, #f5e9d8 100%);
-    border-radius: 12px;
-  }
-  
-  .tip-card {
-    background: #fff;
-    border-left: 4px solid #F2D394;
-    border-radius: 8px;
-    height: 100%;
-  }
-  
-  .v-chip {
-    border-color: #F2D394 !important;
-    color: #333 !important;
-  }
-  
-  .v-expansion-panel {
-    border-radius: 8px !important;
-  }
-  </style>
+];
+</script>
+
+<style scoped>
+.klavier-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-section {
+  background: linear-gradient(to right, #F2D394 30%, #f5e9d8 100%);
+  padding: 3rem;
+  border-radius: 16px;
+}
+
+.teacher-portrait {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.method-card {
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.method-card:hover {
+  transform: translateY(-5px);
+}
+
+.content-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.sticky-card {
+  position: sticky;
+  top: 2rem;
+  background: #F2D394;
+  border-radius: 12px;
+}
+
+.review-card {
+  background: #fff;
+  border-left: 4px solid #F2D394;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.cta-button {
+  background: #fff !important;
+  padding: 16px 32px !important;
+  border-radius: 8px !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 0.5px !important;
+}
+
+.v-chip {
+  border-color: #fff !important;
+  background: rgba(255,255,255,0.2) !important;
+}
+
+.v-table {
+  --v-table-header-color: #333;
+  --v-table-row-hover-color: #f5e9d8;
+}
+</style>

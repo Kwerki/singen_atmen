@@ -1,11 +1,16 @@
 <template>
     <p>Atmen</p>
-
+    <TutorPricing />
 </template>
 
 <script>
+import TutorPricing from '@/components/TutorPricing.vue';
+
 export default {
-    name: 'AtmenView'
+    name: 'AtmenView',
+    components: {
+        TutorPricing
+    }
 }
 </script>
 

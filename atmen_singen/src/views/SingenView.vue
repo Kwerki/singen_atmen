@@ -1,11 +1,19 @@
 <template>
-    <p>Singen</p>
-
+    <div>
+        <p>Singen</p>
+        <TutorPricing />
+    </div>
 </template>
 
 <script>
+import TutorPricing from '@/components/TutorPricing.vue';
+
+
 export default {
-    name: 'SingenView'
+    name: 'SingenView',
+    components: {
+        TutorPricing
+    }
 }
 </script>
 
