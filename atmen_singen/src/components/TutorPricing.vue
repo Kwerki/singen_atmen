@@ -8,27 +8,32 @@
 
             <!-- Stats Section -->
             <v-list density="compact" class="mb-4">
-                <v-list-item>
-                    <template v-slot:prepend>
-                        <v-icon icon="mdi-cash" class="mr-2"></v-icon>
-                    </template>
-                    <v-list-item-title>65€/Stunde</v-list-item-title>
-                    <v-list-item-subtitle>Tarif</v-list-item-subtitle>
-                </v-list-item>
+                <!-- Dynamische Preisanzeige -->
+                <template v-for="(price, index) in currentPricing" :key="index">
+                    <v-list-item>
+                        <template v-slot:prepend>
+                            <v-icon :icon="price.icon" class="mr-2"></v-icon>
+                        </template>
+                        <v-list-item-title>{{ price.title }}</v-list-item-title>
+                        <v-list-item-subtitle>{{ price.subtitle }}</v-list-item-subtitle>
+                    </v-list-item>
+                </template>
 
+                <!-- Krankenkassenhinweis -->
                 <v-list-item v-if="showInsuranceHint">
                     <template v-slot:prepend>
                         <v-icon icon="mdi-hospital-box" class="mr-2"></v-icon>
                     </template>
-                    <v-list-item-title>Kostenübernahme Krankenkasse</v-list-item-title>
-                    <v-list-item-subtitle>gemäß Heilmittelrichtlinien</v-list-item-subtitle>
+                    <v-list-item-title>Kostenübernahme<br>Krankenkasse</v-list-item-title>
+                    
                 </v-list-item>
 
+                <!-- Feste Angaben -->
                 <v-list-item>
                     <template v-slot:prepend>
                         <v-icon icon="mdi-clock-outline" class="mr-2"></v-icon>
                     </template>
-                    <v-list-item-title>18h</v-list-item-title>
+                    <v-list-item-title>12h</v-list-item-title>
                     <v-list-item-subtitle>Antwortzeit</v-list-item-subtitle>
                 </v-list-item>
 
@@ -39,12 +44,19 @@
                     <v-list-item-title>50+</v-list-item-title>
                     <v-list-item-subtitle>Schüler:innen</v-list-item-subtitle>
                 </v-list-item>
+
+                <v-list-item>
+                    <template v-slot:prepend>
+                        <v-icon icon="mdi-package" class="mr-2"></v-icon>
+                    </template>
+                    <v-list-item-title>10er Karte 500€</v-list-item-title>
+                    <v-list-item-subtitle>Packages</v-list-item-subtitle>
+                </v-list-item>
             </v-list>
 
             <!-- Action Section -->
             <div class="action-section">
                 <v-btn variant="outlined" block class="mb-2 request-btn" @click="handleRequest">
-                    <v-icon class="mr-2"></v-icon>
                     Unterricht anfragen
                 </v-btn>
 
@@ -63,6 +75,21 @@ import { computed } from 'vue'
 
 const route = useRoute()
 
+const pricingStructure = {
+    '/klavier': [
+        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde' }
+    ],
+    '/singen': [
+        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde' }
+    ],
+    '/sprechen': [
+        { icon: 'mdi-cash', title: 'ab 40€', subtitle: 'Individuelles Angebot' }
+    ],
+    '/atmen': [
+        { icon: 'mdi-cash', title: '60€/Sitzung', subtitle: 'Einzelbuchung' }
+    ]
+}
+
 const pageTitles = {
     '/atmen': 'Atemtechnik',
     '/klavier': 'Klavierunterricht',
@@ -70,16 +97,12 @@ const pageTitles = {
     '/sprechen': 'Sprechen'
 }
 
-const currentPageTitle = computed(() => {
-    return pageTitles[route.path] || 'Seite'
-})
-
-const showInsuranceHint = computed(() => {
-  return ['/atmen', '/sprechen'].includes(route.path)
-})
+// Computed Properties
+const currentPageTitle = computed(() => pageTitles[route.path] || 'Seite')
+const currentPricing = computed(() => pricingStructure[route.path] || [])
+const showInsuranceHint = computed(() => ['/atmen', '/sprechen'].includes(route.path))
 
 const handleRequest = () => {
-    // Handle booking logic
     console.log('Lesson request initiated')
 }
 </script>
@@ -115,5 +138,14 @@ const handleRequest = () => {
 
 .v-list-item {
     padding-left: 0 !important;
+}
+
+.v-list-item__title {
+    font-weight: 500 !important;
+}
+
+.v-list-item__subtitle {
+    opacity: 0.8;
+    font-size: 0.85rem;
 }
 </style>
