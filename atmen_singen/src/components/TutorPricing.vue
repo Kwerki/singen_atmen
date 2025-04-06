@@ -12,7 +12,7 @@
                 <template v-for="(price, index) in currentPricing" :key="index">
                     <v-list-item>
                         <template v-slot:prepend>
-                            <v-icon :icon="price.icon" class="mr-2"></v-icon>
+                            <v-icon :icon="price.icon" :color="price.iconColor || 'primary'" class="mr-2" ></v-icon>
                         </template>
                         <v-list-item-title>{{ price.title }}</v-list-item-title>
                         <v-list-item-subtitle>{{ price.subtitle }}</v-list-item-subtitle>
@@ -22,7 +22,7 @@
                 <!-- Krankenkassenhinweis -->
                 <v-list-item v-if="showInsuranceHint">
                     <template v-slot:prepend>
-                        <v-icon icon="mdi-hospital-box" class="mr-2"></v-icon>
+                        <v-icon icon="mdi-hospital-box" class="mr-2" color="green"></v-icon>
                     </template>
                     <v-list-item-title>Kostenübernahme<br>Krankenkasse</v-list-item-title>
                     
@@ -31,7 +31,7 @@
                 <!-- Feste Angaben -->
                 <v-list-item>
                     <template v-slot:prepend>
-                        <v-icon icon="mdi-clock-outline" class="mr-2"></v-icon>
+                        <v-icon icon="mdi-clock-outline" class="mr-2" color="blue"></v-icon>
                     </template>
                     <v-list-item-title>12h</v-list-item-title>
                     <v-list-item-subtitle>Antwortzeit</v-list-item-subtitle>
@@ -39,7 +39,7 @@
 
                 <v-list-item>
                     <template v-slot:prepend>
-                        <v-icon icon="mdi-account-group" class="mr-2"></v-icon>
+                        <v-icon icon="mdi-account-group" class="mr-2" color="purple"></v-icon>
                     </template>
                     <v-list-item-title>50+</v-list-item-title>
                     <v-list-item-subtitle>Schüler:innen</v-list-item-subtitle>
@@ -47,7 +47,7 @@
 
                 <v-list-item>
                     <template v-slot:prepend>
-                        <v-icon icon="mdi-package" class="mr-2"></v-icon>
+                        <v-icon icon="mdi-package" class="mr-2" color="orange"></v-icon>
                     </template>
                     <v-list-item-title>10er Karte 500€</v-list-item-title>
                     <v-list-item-subtitle>Packages</v-list-item-subtitle>
@@ -56,8 +56,8 @@
 
             <!-- Action Section -->
             <div class="action-section">
-                <v-btn variant="outlined" block class="mb-2 request-btn" @click="handleRequest">
-                    Unterricht anfragen
+                <v-btn :ripple="false" variant="outlined plain" block class="mb-2 request-btn" @click="handleRequest">
+                    <div class="btn-underline">Unterricht anfragen</div>
                 </v-btn>
 
                 <div class="free-lesson text-center">
@@ -77,16 +77,16 @@ const route = useRoute()
 
 const pricingStructure = {
     '/klavier': [
-        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde' }
+        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde', iconColor: 'green' }
     ],
     '/singen': [
-        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde' }
+        { icon: 'mdi-cash', title: '40€/Stunde', subtitle: 'Einzelstunde', iconColor: 'green' }
     ],
     '/sprechen': [
-        { icon: 'mdi-cash', title: 'ab 40€', subtitle: 'Individuelles Angebot' }
+        { icon: 'mdi-cash', title: 'ab 40€', subtitle: 'Individuelles Angebot', iconColor: 'green' }
     ],
     '/atmen': [
-        { icon: 'mdi-cash', title: '60€/Sitzung', subtitle: 'Einzelbuchung' }
+        { icon: 'mdi-cash', title: '60€/Sitzung', subtitle: 'Einzelbuchung', iconColor: 'green' }
     ]
 }
 
@@ -120,8 +120,6 @@ const handleRequest = () => {
 
 .request-btn {
     border-color: #F2D394 !important;
-    color: #333 !important;
-    letter-spacing: normal;
 }
 
 .free-lesson {

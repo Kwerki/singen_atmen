@@ -53,7 +53,7 @@ const headerImage = computed(() => {
 
 
 .main-container {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
   width: 80%;
 }

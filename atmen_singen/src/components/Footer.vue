@@ -18,7 +18,7 @@
                     </v-col>
 
                     <v-col cols="12" md="4" class="d-flex justify-center order-first order-md-0">
-                        <img src="@/assets/logos/home_button.svg" alt="Logo" style="width: 100px; height: 100px"/>
+                        <img src="@/assets/logos/home_button.svg" alt="Logo" style="width: 100px; height: 100px" />
                     </v-col>
 
                     <v-col cols="12" md="4" class="d-flex justify-end mobile-center">

@@ -1,7 +1,7 @@
 <template>
 
 
-
+  <div class="main-container">
   <v-row>
     <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6" >
       <v-hover v-slot="{ isHovering, props }">
@@ -30,7 +30,7 @@
       </v-hover>
     </v-col>
   </v-row>
-
+  </div>
 </template>
 
 <script setup>
@@ -77,6 +77,10 @@ const cards = ref([
 </script>
 
 <style scoped>
+
+.main-container {
+  max-width: 1200px;
+}
 
 .custom-card {
   transition: all 0.3s ease;

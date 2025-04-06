@@ -1,257 +1,256 @@
 <template>
-  <div class="klavier-container">
-    <!-- Hero Section -->
-    <v-row class="hero-section mb-8" align="center">
-      <v-col cols="12" md="6">
-        <img
-          src="@/assets/home_logos/klavier.jpg"
-          
-          class="teacher-portrait rounded-lg"
-          style="width: 100%; height: auto; object-fit: cover;"
-        ></img>
-      </v-col>
-      
-      <v-col cols="12" md="6">
-        <h1 class="h1-style mb-4">Individueller Klavierunterricht</h1>
-        <div class="font-inter-regular mb-4">
-          <v-chip variant="outlined" class="mr-2 mb-2" v-for="badge in badges" :key="badge">
-            {{ badge }}
-          </v-chip>
-        </div>
-        <div class="font-inter-regular text-h5 mb-6">
-          "Lass uns gemeinsam deine musikalische Sprache entwickeln"
-        </div>
-        <v-btn 
-          variant="text" 
-          to="/termin"
-          class="cta-button"
-        >
-          <span class="btn-content">
-            Kostenlose Probestunde buchen
-            <v-icon icon="mdi-arrow-right" class="ml-2"></v-icon>
-          </span>
-        </v-btn>
-      </v-col>
-    </v-row>
+  <div class="main-container">
+    <h1 class="h1-style text-center mb-8">
+      Klavierkunst entdecken - Ihr persönlicher Weg zur Musikalität
+      <!-- <v-icon large color="primary" class="mb-2">mdi-piano</v-icon> -->
+    </h1>
+    <v-divider class="my-8">
+      <v-icon color="secondary">mdi-music-clef-treble</v-icon>
+    </v-divider>
+    <div class="content-wrapper">
+      <div class="klavier-container">
+        <v-container>
 
-    <!-- Teaching Approach -->
-    <v-row class="mb-8">
-      <v-col cols="12" md="4" v-for="(method, index) in methods" :key="index">
-        <v-card class="method-card pa-6">
-          <v-icon :icon="method.icon" size="48" class="mb-4"></v-icon>
-          <h2 class="h2-style mb-3">{{ method.title }}</h2>
-          <p class="font-inter-regular">{{ method.description }}</p>
-        </v-card>
-      </v-col>
-    </v-row>
+          <div class="content-section">
+            <h2 class="h2-style  mb-6">
+              Willkommen in der Welt der Tasten
+            </h2>
+            <p class="body-text">
+              Begeben Sie sich auf eine klangvolle Reise, die von den ersten einfachen Melodien bis zur meisterhaften
+              Interpretation führt.
+              Entfalten Sie Ihr musikalisches Potenzial in einer inspirierenden Atmosphäre, die Freude am Lernen mit
+              professionellem Anspruch vereint.
+            </p>
+            <div class="content-section image-content-section">
+              <img :src="klavierImage" alt="Professioneller Klavierunterricht" class="klavier-bild" />
+            </div>
+          </div>
 
-    <!-- Lesson Content -->
-    <v-row class="mb-8">
-      <v-col cols="12" md="8">
-        <div class="pa-6 content-card">
-          <h2 class="h1-style mb-4">Dein Unterricht beinhaltet:</h2>
-          <ul class="font-inter-regular">
-            <li v-for="(item, index) in lessonContent" :key="index" class="mb-3">
-              <v-icon icon="mdi-music" class="mr-2"></v-icon>
-              {{ item }}
-            </li>
-          </ul>
-        </div>
-      </v-col>
-      
-      <v-col cols="12" md="4">
-        <div class="sticky-card pa-6">
-          <h3 class="h2-style mb-4">Preisübersicht</h3>
-          <v-expansion-panels variant="accordion">
-            <v-expansion-panel v-for="(price, index) in pricing" :key="index">
-              <v-expansion-panel-title class="font-inter-regular">
-                {{ price.title }}
-              </v-expansion-panel-title>
-              <v-expansion-panel-text>
-                <v-table density="compact">
-                  <tbody>
-                    <tr>
-                      <td>Dauer</td>
-                      <td>{{ price.duration }}</td>
-                    </tr>
-                    <tr>
-                      <td>Preis</td>
-                      <td>{{ price.amount }}</td>
-                    </tr>
-                  </tbody>
-                </v-table>
-              </v-expansion-panel-text>
-            </v-expansion-panel>
-          </v-expansion-panels>
-        </div>
-      </v-col>
-    </v-row>
 
-    <!-- Reviews -->
-    <v-row class="mb-8">
-      <v-col cols="12">
-        <h2 class="h1-style text-center mb-6">Stimmen meiner Schüler</h2>
-        <v-row>
-          <v-col cols="12" md="4" v-for="(review, index) in reviews" :key="index">
-            <v-card class="review-card pa-6">
-              <div class="d-flex align-center mb-3">
-                <v-avatar color="primary" size="48" class="mr-3">
-                  <span class="text-white">{{ review.initials }}</span>
-                </v-avatar>
-                <div>
-                  <div class="font-weight-bold">{{ review.name }}</div>
-                  <div class="text-caption">{{ review.age }} Jahre</div>
-                </div>
-              </div>
-              <p class="font-inter-regular">"{{ review.text }}"</p>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-col>
-    </v-row>
+          <div class="content-section">
+            <h2 class="h2-style mb-6">
+              Häufig gestellte Fragen
+            </h2>
+            <div v-for="(item, i) in faqs" :key="i" class="mb-6">
+              <h3 class="h3-style">
+                <v-icon color="primary" class="mr-2">{{ item.icon }}</v-icon>
+                {{ item.question }}
+              </h3>
+              <p class="body-text">{{ item.answer }}</p>
+            </div>
+          </div>
+
+
+          <div class="content-section">
+            <h2 class="h2-style mb-6">
+              Ihr individueller Lernweg
+            </h2>
+            <v-list lines="two" class="rounded-lg benefit-list">
+              <v-list-item v-for="(benefit, i) in benefits" :key="i" :prepend-icon="benefit.icon">
+                <template v-slot:prepend>
+                  <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
+                </template>
+                <v-list-item-title class="font-weight-bold list-item-title">{{ benefit.title }}</v-list-item-title>
+                <v-list-item-subtitle class="list-item-subtitle">{{ benefit.subtitle }}</v-list-item-subtitle>
+              </v-list-item>
+            </v-list>
+          </div>
+
+
+          <div class="content-section">
+            <h2 class="h2-style mb-6">
+              Einblicke in die Klavierkunst
+            </h2>
+            <div class="video-container">
+              <iframe width="100%" height="360" src="https://www.youtube.com/embed/G5qktkFhSF4" title="YouTube-Video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen sandbox="allow-scripts allow-same-origin" style="border: none;"></iframe>
+              <p v-if="false" class="mt-2 text-center text-muted">
+                Das Video ist zurzeit nicht verfügbar. Bitte versuchen Sie es später noch einmal.
+              </p>
+            </div>
+          </div>
+        </v-container>
+      </div>
+
+      <div class="pricing-wrapper">
+        <TutorPricing />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-const badges = [
-  'Royal College of Music London',
-  '10+ Jahre Erfahrung',
-  'Diplom-Musikpädagogin'
-];
+import { ref } from 'vue';
+import TutorPricing from '@/components/TutorPricing.vue';
+import klavierImage from '@/assets/home_logos/klavier.jpg';
 
-const methods = [
+
+
+const faqs = ref([
   {
-    icon: 'mdi-hand-heart',
-    title: 'Ganzheitlicher Ansatz',
-    description: 'Verbinde Technik mit emotionalem Ausdruck für authentisches Spiel'
+    question: 'Benötige ich Vorkenntnisse?',
+    answer:
+      'Ihr musikalischer Weg beginnt genau dort, wo Sie stehen. Wir entwickeln gemeinsam eine fundierte Basis – ganz gleich, ob Sie erste Erfahrungen sammeln oder vorhandenes Wissen vertiefen möchten.',
+    icon: 'mdi-music-clef-treble',
   },
   {
+    question: 'Wie wichtig ist regelmäßiges Üben?',
+    answer:
+      'Durch effiziente Übetechniken und fokussierte Lerneinheiten maximieren wir Ihren Fortschritt. Qualität vor Quantität steht dabei im Mittelpunkt unserer Methodik.',
+    icon: 'mdi-clock-time-three',
+  },
+  {
+    question: 'Instrumentenbeschaffung?',
+    answer:
+      'Gerne beraten wir Sie bei der Auswahl und Organisation – von Mietoptionen bis zur professionellen Instrumentenpflege.',
+    icon: 'mdi-truck-delivery',
+  },
+]);
+
+const benefits = ref([
+  {
+    title: 'Maßgeschneiderter Unterricht',
+    subtitle: 'Individuell abgestimmt auf Alter, Lerntempo und musikalische Ziele',
+    icon: 'mdi-account-music',
+    color: 'indigo',
+  },
+  {
+    title: 'Fundamentale Techniken',
+    subtitle: 'Rhythmik, Harmonielehre und musikalischer Ausdruck',
+    icon: 'mdi-music-box-multiple',
+    color: 'teal',
+  },
+  {
+    title: 'Flexible Methodik',
+    subtitle: 'Kombination aus traditioneller Notenlehre und modernem Intuitionstraining',
     icon: 'mdi-brain',
-    title: 'Mental Coaching',
-    description: 'Überwinde Leistungsdruck durch kreative Freiheit'
+    color: 'orange',
   },
   {
-    icon: 'mdi-music-circle',
-    title: 'Improvisation',
-    description: 'Entdecke deinen persönlichen Stil jenseits der Noten'
-  }
-];
-
-const lessonContent = [
-  'Individueller Lernplan für deine Ziele',
-  'Gehörbildung & Rhythmik',
-  'Harmonielehre verständlich erklärt',
-  'Körperbewusstsein am Instrument',
-  'Repertoire-Aufbau nach deinen Vorlieben',
-  'Vorbereitung auf Auftritte/Vorspiele'
-];
-
-const pricing = [
-  { 
-    title: 'Einzelstunde',
-    duration: '45 Minuten',
-    amount: '40€'
+    title: 'Altersgerechte Konzepte',
+    subtitle: 'Von spielerischer Frühförderung bis zum anspruchsvollen Repertoiretraining',
+    icon: 'mdi-human-male-female-child',
+    color: 'pink',
   },
-  { 
-    title: 'Jahresabo',
-    duration: '4x monatlich',
-    amount: '99€/Monat'
-  },
-  { 
-    title: 'Intensivkurs',
-    duration: '90 Minuten',
-    amount: '70€'
-  }
-];
-
-const reviews = [
-  {
-    initials: 'TS',
-    name: 'Thomas Schmidt',
-    age: 34,
-    text: 'Antje versteht es perfekt, Technik mit Leidenschaft zu verbinden'
-  },
-  {
-    initials: 'LM',
-    name: 'Lena Müller',
-    age: 28,
-    text: 'Endlich verstehe ich Musiktheorie praktisch anzuwenden'
-  },
-  {
-    initials: 'JK',
-    name: 'Jana Köhler',
-    age: 42,
-    text: 'Der Unterricht hat mein Verhältnis zum Klavier komplett verändert'
-  }
-];
+]);
 </script>
 
 <style scoped>
-.klavier-container {
-  max-width: 1280px;
+.main-container {
+  max-width: 1500px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
 }
 
-.hero-section {
-  background: linear-gradient(to right, #F2D394 30%, #f5e9d8 100%);
-  padding: 3rem;
-  border-radius: 16px;
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
 }
 
-.teacher-portrait {
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+.klavier-container {
+  flex: 1;
+  margin-right: 0;
+  max-width: 800px;
+  margin-left: auto;
 }
 
-.method-card {
-  background: rgba(255,255,255,0.9);
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-  height: 100%;
-}
-
-.method-card:hover {
-  transform: translateY(-5px);
-}
-
-.content-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.sticky-card {
+.pricing-wrapper {
+  width: 300px;
+  margin-left: auto;
+  margin-right: 2rem;
   position: sticky;
   top: 2rem;
-  background: #F2D394;
+  align-self: start;
+}
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-wrapper {
+    order: -1;
+    margin-bottom: 2rem;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    top: auto;
+  }
+
+  .klavier-container {
+    margin-right: 0;
+    max-width: 100%;
+  }
+}
+
+.content-section {
+  margin-bottom: 5rem; /* Nur margin-bottom beibehalten */
+}
+
+.body-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.benefit-list {
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.list-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.list-item-subtitle {
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.v-list-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.v-list-item:last-child {
+  border-bottom: none;
+}
+
+.video-section {
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  background-color: black;
+}
+
+.video-container iframe {
+  aspect-ratio: 16 / 9;
+}
+
+.klavier-bild {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
   border-radius: 12px;
 }
 
-.review-card {
-  background: #fff;
-  border-left: 4px solid #F2D394;
-  transition: all 0.3s ease;
-}
-
-.review-card:hover {
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
-.cta-button {
-  background: #fff !important;
-  padding: 16px 32px !important;
-  border-radius: 8px !important;
-  font-size: 1.1rem !important;
-  letter-spacing: 0.5px !important;
-}
-
-.v-chip {
-  border-color: #fff !important;
-  background: rgba(255,255,255,0.2) !important;
-}
-
-.v-table {
-  --v-table-header-color: #333;
-  --v-table-row-hover-color: #f5e9d8;
+.image-content-section {
+  margin: 2rem 0;
 }
 </style>
