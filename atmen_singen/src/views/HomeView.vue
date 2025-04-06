@@ -3,23 +3,12 @@
     <v-row>
       <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6">
         <v-hover v-slot="{ isHovering, props }">
-          <div
-            @click="navigateTo(card.route)"
-            :style="{ cursor: 'pointer' }"
-          >
-            <v-card
-              v-bind="props"
-              :elevation="isHovering ? 6 : 2"
-              :class="{ 'zoom-effect': isHovering, 'custom-card': true }"
-            >
+          <div @click="navigateTo(card.route)" :style="{ cursor: 'pointer' }">
+            <v-card v-bind="props" :elevation="isHovering ? 6 : 2"
+              :class="{ 'zoom-effect': isHovering, 'custom-card': true }">
               <div class="image-wrapper">
-                <v-img
-                  :src="card.image"
-                  height="300px"
-                  cover
-                  class="zoom-image"
-                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-                ></v-img>
+                <v-img :src="card.image" height="300px" cover class="zoom-image"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"></v-img>
                 <v-card-title class="text-white h image-title h2-style">
                   {{ card.title }}
                 </v-card-title>
@@ -30,12 +19,7 @@
               </v-card-text>
 
               <v-card-text>
-                <v-btn
-                  :ripple="false"
-                  variant="plain"
-                  :to="card.route"
-                  @click.stop
-                >
+                <v-btn :ripple="false" variant="plain" :to="card.route" @click.stop>
                   <div class="btn-underline">Mehr Erfahren</div>
                 </v-btn>
               </v-card-text>
@@ -60,16 +44,16 @@ router.options.scrollBehavior = (to, from, savedPosition) => {
 
 const cards = ref([
   {
-    title: 'Vokalexpression',
-    subtitle: 'Ihre Stimme als einzigartiges Ausdrucksmittel',
-    image: new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
-    route: '/sprechen',
-  },
-  {
     title: 'Atemtechnik',
     subtitle: 'Entdecken Sie die Kraft des bewussten Atems',
     image: new URL('@/assets/home_logos/atem.jpg', import.meta.url).href,
     route: '/atmen',
+  },
+  {
+    title: 'Sprechcoaching',
+    subtitle: 'Ihre Stimme als einzigartiges Ausdrucksmittel',
+    image: new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
+    route: '/sprechen',
   },
   {
     title: 'Klavierunterricht',
@@ -135,7 +119,8 @@ const navigateTo = (route) => {
   left: 0;
   z-index: 2;
   transform: translateZ(0);
-  pointer-events: none; /* Verhindert, dass der Titel Klicks abfängt */
+  pointer-events: none;
+  /* Verhindert, dass der Titel Klicks abfängt */
 }
 
 .zoom-effect {
