@@ -142,6 +142,16 @@
   }
   
   @media (max-width: 1024px) {
+    .pricing-wrapper {
+        order: -1;
+        margin-bottom: 2rem;
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        top: auto;
+    }
+
     .atem-container {
       max-width: 100%;
     }

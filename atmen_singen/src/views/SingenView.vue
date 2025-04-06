@@ -45,13 +45,13 @@
                             <v-list-item v-for="(benefit, i) in benefits" :key="i" :prepend-icon="benefit.icon">
                                 <template v-slot:prepend>
                                     <div class="icon-wrapper">
-                                    <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
+                                        <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
                                     </div>
                                 </template>
                                 <v-list-item-title class="font-weight-bold list-item-title">{{ benefit.title
-                                }}</v-list-item-title>
+                                    }}</v-list-item-title>
                                 <v-list-item-subtitle class="list-item-subtitle">{{ benefit.subtitle
-                                }}</v-list-item-subtitle>
+                                    }}</v-list-item-subtitle>
                             </v-list-item>
                         </v-list>
                     </div>
@@ -138,6 +138,16 @@ const benefits = ref([
 }
 
 @media (max-width: 1024px) {
+    .pricing-wrapper {
+        order: -1;
+        margin-bottom: 2rem;
+        position: relative;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        top: auto;
+    }
+
     .singen-container {
         max-width: 100%;
     }
@@ -183,6 +193,6 @@ const benefits = ref([
     margin-right: 1rem;
     width: 24px;
     height: 24px;
-    
+
 }
 </style>
