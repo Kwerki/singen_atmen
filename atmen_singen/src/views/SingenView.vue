@@ -47,9 +47,9 @@
                                     <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
                                 </template>
                                 <v-list-item-title class="font-weight-bold list-item-title">{{ benefit.title
-                                    }}</v-list-item-title>
+                                }}</v-list-item-title>
                                 <v-list-item-subtitle class="list-item-subtitle">{{ benefit.subtitle
-                                    }}</v-list-item-subtitle>
+                                }}</v-list-item-subtitle>
                             </v-list-item>
                         </v-list>
                     </div>
@@ -59,14 +59,13 @@
                             Einblicke in die Stimmkunst
                         </h2>
                         <div class="video-container">
-                            <iframe width="100%" height="360" src="https://www.youtube.com/watch?v=3i05ngoBnRk"
-                                title="YouTube-Video" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowfullscreen sandbox="allow-scripts allow-same-origin"
-                                style="border: none;"></iframe>
+                            <iframe width="100%" height="360" src="https://www.youtube.com/embed/3i05ngoBnRk"
+                                title="Einführung in die Stimmbildung" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen style="border: none;">
+                            </iframe>
                         </div>
                     </div>
-
                 </v-container>
             </div>
 
@@ -122,7 +121,7 @@ const benefits = ref([
     {
         title: 'Emotionaler Ausdruck',
         subtitle: 'Authentische Verbindung von Technik und Interpretation',
-        icon: 'mdi-emotion-happy',
+        icon: 'mdi-emoticon-happy',
         color: 'amber',
     },
 ]);
@@ -143,10 +142,10 @@ const benefits = ref([
 }
 
 .singen-bild {
-  width: 100%;
-  max-width: 750px;
-  height: auto;
-  border-radius: 12px;
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    border-radius: 12px;
 }
 
 .benefit-list {
