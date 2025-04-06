@@ -35,6 +35,14 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+// Scrollt bei Navigation immer nach oben
+router.options.scrollBehavior = (to, from, savedPosition) => {
+  return { top: 0 }
+}
 
 const cards = ref([
   {
