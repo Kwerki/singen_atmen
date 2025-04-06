@@ -1,48 +1,62 @@
 <template>
-
-
   <div class="main-container">
-  <v-row>
-    <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6" >
-      <v-hover v-slot="{ isHovering, props }">
-        <v-card v-bind="props" :elevation="isHovering ? 6 : 2" :class="{ 'zoom-effect': isHovering }"
-          class="custom-card">
+    <v-row>
+      <v-col v-for="(card, index) in cards" :key="index" cols="12" md="6">
+        <v-hover v-slot="{ isHovering, props }">
+          <div
+            @click="navigateTo(card.route)"
+            :style="{ cursor: 'pointer' }"
+          >
+            <v-card
+              v-bind="props"
+              :elevation="isHovering ? 6 : 2"
+              :class="{ 'zoom-effect': isHovering, 'custom-card': true }"
+            >
+              <div class="image-wrapper">
+                <v-img
+                  :src="card.image"
+                  height="300px"
+                  cover
+                  class="zoom-image"
+                  gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                ></v-img>
+                <v-card-title class="text-white h image-title h2-style">
+                  {{ card.title }}
+                </v-card-title>
+              </div>
 
-          <div class="image-wrapper">
-            <v-img :src="card.image" height="300px" cover class="zoom-image"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
-            </v-img>
-            <v-card-title class="text-white h image-title h2-style">{{ card.title }}</v-card-title>
+              <v-card-text>
+                <div class="font-inter-regular">{{ card.subtitle }}</div>
+              </v-card-text>
+
+              <v-card-text>
+                <v-btn
+                  :ripple="false"
+                  variant="plain"
+                  :to="card.route"
+                  @click.stop
+                >
+                  <div class="btn-underline">Mehr Erfahren</div>
+                </v-btn>
+              </v-card-text>
+            </v-card>
           </div>
-
-          <v-card-text>
-            <div class="font-inter-regular">{{ card.subtitle }}</div>
-          </v-card-text>
-
-
-
-          <v-card-text>
-            <v-btn :ripple="false" variant="plain" :to="card.route">
-              <div class="btn-underline">Mehr Erfahren</div>
-            </v-btn>
-          </v-card-text>
-        </v-card>
-      </v-hover>
-    </v-col>
-  </v-row>
+        </v-hover>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
 
-const router = useRouter()
+const router = useRouter();
 
 // Scrollt bei Navigation immer nach oben
 router.options.scrollBehavior = (to, from, savedPosition) => {
-  return { top: 0 }
-}
+  return { top: 0 };
+};
 
 const cards = ref([
   {
@@ -82,10 +96,13 @@ const cards = ref([
     route: '/youtube',
   },
 ]);
+
+const navigateTo = (route) => {
+  router.push(route);
+};
 </script>
 
 <style scoped>
-
 .main-container {
   max-width: 1200px;
 }
@@ -93,7 +110,7 @@ const cards = ref([
 .custom-card {
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: #F2D394;
+  background-color: #f2d394;
   overflow: hidden;
 }
 
@@ -118,8 +135,7 @@ const cards = ref([
   left: 0;
   z-index: 2;
   transform: translateZ(0);
-  transition: none !important;
-  pointer-events: none;
+  pointer-events: none; /* Verhindert, dass der Titel Klicks abfängt */
 }
 
 .zoom-effect {
