@@ -60,7 +60,7 @@ const headerImage = computed(() => {
 
 @media (max-width: 959px) {
   .main-container {
-    width: 95%;
+    width: 100%;
   }
 }
 
