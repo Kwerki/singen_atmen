@@ -44,7 +44,9 @@
                         <v-list lines="two" class="rounded-lg benefit-list">
                             <v-list-item v-for="(benefit, i) in benefits" :key="i" :prepend-icon="benefit.icon">
                                 <template v-slot:prepend>
+                                    <div class="icon-wrapper">
                                     <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
+                                    </div>
                                 </template>
                                 <v-list-item-title class="font-weight-bold list-item-title">{{ benefit.title
                                 }}</v-list-item-title>
@@ -167,9 +169,20 @@ const benefits = ref([
 .v-list-item {
     padding: 1.25rem 0;
     border-bottom: 1px solid #e2e8f0;
+    align-items: center;
 }
 
 .v-list-item:last-child {
     border-bottom: none;
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    width: 24px;
+    height: 24px;
+    
 }
 </style>
