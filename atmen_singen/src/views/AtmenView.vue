@@ -41,7 +41,7 @@
               <h2 class="h2-style mb-6">
                 Ihr Weg zur Atemharmonie
               </h2>
-              <v-list lines="two" class="rounded-lg benefit-list">
+              <v-list lines="two" class="rounded-lg benefit-list" elevation="2">
                 <v-list-item v-for="(benefit, i) in benefits" :key="i">
                   <template v-slot:prepend>
                     <div class="icon-wrapper">

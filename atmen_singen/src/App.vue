@@ -51,7 +51,6 @@ const headerImage = computed(() => {
   width: 15%;
 }
 
-
 .main-container {
   max-width: 1500px;
   margin: auto;
@@ -64,7 +63,6 @@ const headerImage = computed(() => {
     padding: 5px;
   }
 }
-
 
 .app-container {
   background: linear-gradient(to bottom, #ffffff, #f0f4f8);

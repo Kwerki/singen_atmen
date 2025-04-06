@@ -92,6 +92,7 @@ const navigateTo = (route) => {
 }
 
 .custom-card {
+  border-radius: 12px;
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: #f2d394;

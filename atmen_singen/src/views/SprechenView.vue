@@ -42,7 +42,7 @@
                         <h2 class="h2-style mb-6">
                             Ihr Weg zur verbalen Meisterschaft
                         </h2>
-                        <v-list lines="two" class="rounded-lg benefit-list">
+                        <v-list lines="two" class="rounded-lg benefit-list" elevation="2">
                             <v-list-item v-for="(benefit, i) in benefits" :key="i" :prepend-icon="benefit.icon">
                                 <template v-slot:prepend>
                                     <div class="icon-wrapper">
