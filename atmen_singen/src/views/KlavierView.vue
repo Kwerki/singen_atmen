@@ -2,7 +2,6 @@
   <div class="main-container">
     <h1 class="h1-style text-center mb-8">
       Klavierkunst entdecken - Ihr persönlicher Weg zur Musikalität
-      <!-- <v-icon large color="primary" class="mb-2">mdi-piano</v-icon> -->
     </h1>
     <v-divider class="my-8">
       <v-icon color="secondary">mdi-music-clef-treble</v-icon>
@@ -10,9 +9,8 @@
     <div class="content-wrapper">
       <div class="klavier-container">
         <v-container>
-
           <div class="content-section">
-            <h2 class="h2-style  mb-6">
+            <h2 class="h2-style  mb-6">
               Willkommen in der Welt der Tasten
             </h2>
             <p class="body-text">
@@ -25,8 +23,6 @@
               <img :src="klavierImage" alt="Professioneller Klavierunterricht" class="klavier-bild" />
             </div>
           </div>
-
-
           <div class="content-section">
             <h2 class="h2-style mb-6">
               Häufig gestellte Fragen
@@ -39,8 +35,6 @@
               <p class="body-text">{{ item.answer }}</p>
             </div>
           </div>
-
-
           <div class="content-section">
             <h2 class="h2-style mb-6">
               Ihr individueller Lernweg
@@ -55,8 +49,6 @@
               </v-list-item>
             </v-list>
           </div>
-
-
           <div class="content-section">
             <h2 class="h2-style mb-6">
               Einblicke in die Klavierkunst
@@ -73,7 +65,6 @@
           </div>
         </v-container>
       </div>
-
       <div class="pricing-wrapper">
         <TutorPricing />
       </div>
@@ -85,8 +76,6 @@
 import { ref } from 'vue';
 import TutorPricing from '@/components/TutorPricing.vue';
 import klavierImage from '@/assets/home_logos/klavier.jpg';
-
-
 
 const faqs = ref([
   {
@@ -138,20 +127,6 @@ const benefits = ref([
 </script>
 
 <style scoped>
-.main-container {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 2rem;
-  min-height: 100vh;
-}
-
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 3rem;
-  align-items: start;
-}
-
 .klavier-container {
   flex: 1;
   margin-right: 0;
@@ -159,20 +134,9 @@ const benefits = ref([
   margin-left: auto;
 }
 
-.pricing-wrapper {
-  width: 300px;
-  margin-left: auto;
-  margin-right: 2rem;
-  position: sticky;
-  top: 2rem;
-  align-self: start;
-}
+
 
 @media (max-width: 1024px) {
-  .content-wrapper {
-    grid-template-columns: 1fr;
-  }
-
   .pricing-wrapper {
     order: -1;
     margin-bottom: 2rem;
@@ -189,15 +153,13 @@ const benefits = ref([
   }
 }
 
-.content-section {
-  margin-bottom: 5rem; /* Nur margin-bottom beibehalten */
+.klavier-bild {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  border-radius: 12px;
 }
 
-.body-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #4a5568;
-}
 
 .benefit-list {
   border-radius: 12px;
@@ -224,33 +186,4 @@ const benefits = ref([
   border-bottom: none;
 }
 
-.video-section {
-  margin-top: 4rem;
-  padding: 0 2rem;
-}
-
-.video-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  background-color: black;
-}
-
-.video-container iframe {
-  aspect-ratio: 16 / 9;
-}
-
-.klavier-bild {
-  width: 100%;
-  max-width: 750px;
-  height: auto;
-  border-radius: 12px;
-}
-
-.image-content-section {
-  margin: 2rem 0;
-}
 </style>

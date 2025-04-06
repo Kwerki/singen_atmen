@@ -23,8 +23,8 @@
 .h1-style {
   font-family: 'Inter';
   font-size: 2.2rem;
-  font-weight: 400;
-  margin: 1rem 0;
+  font-weight: bold;
+  margin: 1.5rem 0;
   line-height: 1.2;
 }
 
@@ -119,3 +119,62 @@
 .v-list-item.active-route .btn-underline::after {
   left: 0 !important;
 }
+
+/* Formatierung für einezelne View*/
+.main-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0.7rem;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.content-section {
+  margin-bottom: 5rem;
+}
+
+.body-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  background-color: black;
+}
+
+.pricing-wrapper {
+  width: 300px;
+  margin-left: auto;
+  margin-right: 2rem;
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.video-container iframe {
+  aspect-ratio: 16 / 9;
+}
+
+.image-content-section {
+  margin: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
