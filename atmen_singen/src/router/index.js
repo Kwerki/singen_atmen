@@ -7,7 +7,7 @@ import HomeView from '@/views/HomeView.vue'
 import TerminView from '@/views/TerminView.vue'
 import AboutMeView from '@/views/AboutMeView.vue'
 import YoutubeView from '@/views/YoutubeView.vue'
-
+import {createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
@@ -57,7 +57,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(), 
+  history: createWebHashHistory(process.env.NODE_ENV === 'production' ? '/singen_atmen/' : '/'), 
   routes,
 })
 
