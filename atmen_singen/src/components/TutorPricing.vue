@@ -45,7 +45,7 @@
               <v-icon icon="mdi-package" class="mr-2" color="orange"></v-icon>
             </template>
             <v-list-item-title>10er Karte 500€</v-list-item-title>
-            <v-list-item-subtitle>Packages</v-list-item-subtitle>
+            <v-list-item-subtitle>Pakete</v-list-item-subtitle>
           </v-list-item>
         </v-list>
   
@@ -53,21 +53,19 @@
           <v-btn :ripple="false" variant="outlined" plain block class="mb-2 request-btn" @click="handleRequest">
             <div class="btn-underline">Unterricht anfragen</div>
           </v-btn>
-  
-          <div class="free-lesson text-center">
-            <v-icon icon="mdi-gift-outline" small class="mr-1"></v-icon>
-            1. Stunde gratis
-          </div>
         </div>
+
       </v-card-text>
     </v-card>
   </template>
   
   <script setup>
-  import { useRoute } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
   import { computed } from 'vue'
   
   const route = useRoute()
+  const router = useRouter();
+
   
   const pricingStructure = {
     '/klavier': [
@@ -97,7 +95,7 @@
   const showInsuranceHint = computed(() => ['/atmen', '/sprechen'].includes(route.path))
   
   const handleRequest = () => {
-    console.log('Lesson request initiated')
+    router.push('/termin')
   }
   </script>
   
@@ -120,12 +118,6 @@
   
   .request-btn {
     border-color: #F2D394 !important;
-  }
-  
-  .free-lesson {
-    font-size: 0.9rem;
-    color: #4CAF50;
-    margin-top: 8px;
   }
   
   .h2-style {
