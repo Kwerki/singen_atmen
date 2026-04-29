@@ -4,6 +4,8 @@ import KlavierView from '@/views/KlavierView.vue'
 import SingenView from '@/views/SingenView.vue'
 import SprechenView from '@/views/SprechenView.vue'
 import HomeView from '@/views/HomeView.vue'
+import NewsView from '@/views/NewsView.vue'
+import AdminView from '@/views/AdminView.vue'
 import TerminView from '@/views/TerminView.vue'
 import AboutMeView from '@/views/AboutMeView.vue'
 import YoutubeView from '@/views/YoutubeView.vue'
@@ -53,6 +55,16 @@ const routes = [
     path: '/youtube',
     name: 'youtube',
     component: YoutubeView,
+  },
+  {
+    path: '/news',
+    name: 'news',
+    component: NewsView,
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    component: AdminView,
   },
 ]
 

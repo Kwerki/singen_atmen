@@ -145,6 +145,11 @@ export default {
                 icon: 'mdi-youtube',
                 route: '/youtube'
             },
+            {
+                title: 'Admin',
+                icon: 'mdi-shield-account',
+                route: '/admin'
+            },
         ],
         navItems: [
             {
