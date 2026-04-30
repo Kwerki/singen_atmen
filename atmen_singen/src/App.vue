@@ -2,7 +2,7 @@
   <v-app class="app-container">
     <header class="header d-none d-md-block">
       <router-link to="/home">
-        <img :src="headerImage">
+        <SvgLogo name="home" class="header-logo" />
       </router-link>
     </header>
 
@@ -16,39 +16,21 @@
 </template>
 
 <script setup>
-import { RouterView } from 'vue-router'
-import NavBar from '@/components/NavBar.vue'
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
-import Footer from '@/components/Footer.vue'
-
-const route = useRoute();
-
-
-const headerImage = computed(() => {
-  switch (route.path) {
-    case '/atmen':
-      return new URL('@/assets/logos/header_atmen.svg', import.meta.url).href;
-    case '/klavier':
-      return new URL('@/assets/logos/header_klavier.svg', import.meta.url).href;
-    case '/singen':
-      return new URL('@/assets/logos/header_singen.svg', import.meta.url).href;
-    case '/sprechen':
-      return new URL('@/assets/logos/header_sprechen.svg', import.meta.url).href;
-    default:
-      return new URL('@/assets/logos/header_home.svg', import.meta.url).href;
-  }
-});
-
+import NavBar from '@/components/NavBar.vue';
+import Footer from '@/components/Footer.vue';
+import SvgLogo from '@/components/SvgLogo.vue';
 </script>
-
-
 
 <style scoped>
 .header {
   display: block;
   margin: auto;
   width: 15%;
+}
+
+.header-logo {
+  width: 100%;
+  height: auto;
 }
 
 .main-container {

@@ -169,8 +169,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import newsData from '@/assets/news.json';
 import newsImg1 from '@/assets/home_logos/singen.jpg';
+import newsImg2 from '@/assets/home_logos/klavier.jpg';
+import newsImg3 from '@/assets/home_logos/sprechen.jpg';
+
+
+import newsData from '@/assets/news.json';
 
 const router = useRouter();
 
@@ -192,13 +196,10 @@ const formatDate = (dateStr) => {
   return date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
 };
 
+// Import news images
+
 const getNewsImage = (id) => {
-  // Use project images for news feed
-  const images = [
-    new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
-    new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
-    new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
-  ];
+  const images = [newsImg1, newsImg2, newsImg3];
   return images[(id - 1) % images.length];
 };
 </script>
