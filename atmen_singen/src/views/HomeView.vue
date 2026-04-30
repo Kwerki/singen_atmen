@@ -149,7 +149,7 @@
           <v-card class="news-card-full" elevation="2" @click="navigateTo('/news')">
             <v-row no-gutters align="center">
               <v-col cols="12" md="4">
-                <v-img :src="getNewsImage(item.id)" height="200" cover class="news-image"></v-img>
+                <img :src="getNewsImage(item.id)" height="200" cover class="news-image" style="object-fit: cover; width: 100%;">
               </v-col>
               <v-col cols="12" md="8">
                 <v-card-text class="news-card-content">
@@ -169,10 +169,6 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import newsImg1 from '@/assets/home_logos/singen.jpg';
-import newsImg2 from '@/assets/home_logos/klavier.jpg';
-import newsImg3 from '@/assets/home_logos/sprechen.jpg';
-
 
 import newsData from '@/assets/news.json';
 
@@ -199,7 +195,11 @@ const formatDate = (dateStr) => {
 // Import news images
 
 const getNewsImage = (id) => {
-  const images = [newsImg1, newsImg2, newsImg3];
+  const images = [
+    new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
+    new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
+    new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
+  ];
   return images[(id - 1) % images.length];
 };
 </script>
