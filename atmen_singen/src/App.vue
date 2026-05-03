@@ -12,6 +12,7 @@
       <router-view />
     </v-main>
     <Footer />
+    <ScrollToTop />
   </v-app>
 </template>
 
@@ -19,6 +20,7 @@
 import NavBar from '@/components/NavBar.vue';
 import Footer from '@/components/Footer.vue';
 import SvgLogo from '@/components/SvgLogo.vue';
+import ScrollToTop from '@/components/ScrollToTop.vue';
 </script>
 
 <style scoped>
