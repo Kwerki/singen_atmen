@@ -662,6 +662,8 @@ const getNewsImage = (imageId) => {
   transition: all 0.3s ease;
   cursor: pointer;
   margin-bottom: 1rem;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .news-card-full:hover {
@@ -669,13 +671,25 @@ const getNewsImage = (imageId) => {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
+.news-card-full:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
 .news-image {
   border-radius: 0;
+  display: block;
+  width: 100%;
 }
 
 @media (max-width: 959px) {
+  .news-card-full {
+    border-radius: 16px;
+  }
+
   .news-image {
     border-radius: 16px 16px 0 0;
+    height: 200px;
   }
 }
 
