@@ -25,6 +25,15 @@
               rows="4"
               class="mb-4"
             ></v-textarea>
+
+            <v-select
+              v-model="imageId"
+              label="Bild"
+              :items="imageOptions"
+              item-title="label"
+              item-value="value"
+              class="mb-4"
+            ></v-select>
             
             <v-btn
               color="primary"
@@ -62,8 +71,15 @@ import { ref } from 'vue';
 
 const title = ref('');
 const text = ref('');
+const imageId = ref(1);
 const valid = ref(false);
 const submitted = ref(false);
+
+const imageOptions = [
+  { label: 'Singen', value: 1 },
+  { label: 'Klavier', value: 2 },
+  { label: 'Sprechen', value: 3 },
+];
 
 const rules = {
   required: v => !!v || 'Pflichtfeld'
@@ -79,7 +95,7 @@ const submitNews = async () => {
     const response = await fetch('http://localhost:3456/news', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title: title.value, text: text.value })
+      body: JSON.stringify({ title: title.value, text: text.value, imageId: imageId.value })
     });
     const result = await response.json();
     if (result.success) {

@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
     req.on('data', chunk => body += chunk);
     req.on('end', () => {
       try {
-        const { title, text } = JSON.parse(body);
+        const { title, text, imageId } = JSON.parse(body);
         if (!title || !text) {
           res.writeHead(400, { 'Content-Type': 'application/json' });
           res.end(JSON.stringify({ error: 'Title and text required' }));
@@ -42,6 +42,7 @@ const server = http.createServer((req, res) => {
           id: Date.now(),
           title,
           text,
+          imageId: imageId || 1,
           date: new Date().toISOString().split('T')[0]
         };
         news.unshift(newEntry);
