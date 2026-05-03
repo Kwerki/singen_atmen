@@ -9,7 +9,7 @@ import AdminView from '@/views/AdminView.vue'
 import TerminView from '@/views/TerminView.vue'
 import AboutMeView from '@/views/AboutMeView.vue'
 import YoutubeView from '@/views/YoutubeView.vue'
-import {createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
@@ -69,7 +69,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(process.env.NODE_ENV === 'production' ? '/singen_atmen/' : '/'), 
+  history: createWebHistory(process.env.NODE_ENV === 'production' ? '/singen_atmen/' : '/'), 
   routes,
 })
 
