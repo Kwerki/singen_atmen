@@ -149,7 +149,7 @@
           <v-card class="news-card-full" elevation="2" @click="navigateTo('/news')">
             <v-row no-gutters align="center">
               <v-col cols="12" md="4">
-                <img :src="getNewsImage(item.id)" height="200" cover class="news-image" style="object-fit: cover; width: 100%;">
+                <img :src="getNewsImage(item.id)" loading="lazy" height="200" cover class="news-image" style="object-fit: cover; width: 100%;">
               </v-col>
               <v-col cols="12" md="8">
                 <v-card-text class="news-card-content">
@@ -180,8 +180,16 @@ router.options.scrollBehavior = (to, from, savedPosition) => {
 
 const news = newsData;
 
+// Static image paths — computed once at module level, no re-evaluation on render
 const musikImage = new URL('@/assets/home_logos/singen.jpg', import.meta.url).href;
 const spracheImage = new URL('@/assets/landing/sprache.jpg', import.meta.url).href;
+
+// Proper per-news-item image mapping
+const newsImageMap = {
+  1: new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
+  2: new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
+  3: new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
+};
 
 const navigateTo = (route) => {
   router.push(route);
@@ -192,16 +200,7 @@ const formatDate = (dateStr) => {
   return date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
 };
 
-// Import news images
-
-const getNewsImage = (id) => {
-  const images = [
-    new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
-    new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
-    new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
-  ];
-  return images[(id - 1) % images.length];
-};
+const getNewsImage = (id) => newsImageMap[id] || newsImageMap[1];
 </script>
 
 <style scoped>
