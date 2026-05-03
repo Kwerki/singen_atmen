@@ -270,11 +270,33 @@ export default {
     align-items: center;
 }
 
-.v-list-item {
-    position: relative;
+.fullscreen-drawer {
+    width: 100% !important;
+    height: 100vh;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-.active-route .btn-underline {
+.v-navigation-drawer {
+    --v-navigation-drawer-transition: none;
+}
+
+.v-list-item {
+    min-height: 56px;
+    border-radius: 12px;
+    margin: 4px 8px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.v-list-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.active-route {
+    background-color: rgba(201, 123, 42, 0.08) !important;
+    box-shadow: inset 3px 0 0 #c97b2a;
+}
+
+.active-route .v-list-item-title {
     font-weight: 600;
 }
 
@@ -289,7 +311,6 @@ export default {
 .fullscreen-drawer {
     width: 100% !important;
     height: 100vh;
-    transform: translateX(100%);
 }
 
 .v-navigation-drawer--active {
