@@ -1,69 +1,66 @@
 <template>
     <div class="main-container">
-        <h1 class="h1-style text-center mb-8">
-            Die Kunst des Gesangs - Entfalten Sie Ihre Stimme
-        </h1>
-        <v-divider class="my-8">
-            <v-icon color="secondary">mdi-music-clef-treble</v-icon>
-        </v-divider>
+        <div class="page-hero fade-in">
+            <p class="eyebrow">Stimmbildung</p>
+            <h1 class="h1-style text-center">
+                Singen lernen — die Stimme entfalten
+            </h1>
+        </div>
         <div class="content-wrapper">
             <div class="singen-container">
                 <v-container>
 
                     <div class="content-section">
-                        <h2 class="h2-style mb-6">
-                            Willkommen in der Welt der Stimmentfaltung
-                        </h2>
+                        <h2 class="h2-style mb-6">Singen macht Mut, schön und Kinder schlau</h2>
                         <p class="body-text">
-                            Entdecken Sie die transformierende Kraft des Gesangs, wo Atem und Emotion zu Klang werden.
-                            Entwickeln Sie Ihre Stimme als natürliches Instrument - von der ersten Tonbildung bis zur
-                            ausdrucksstarken Interpretation.
+                            Die Stimme ist ein wunderbares Phänomen, getragen vom Atemfluss.
+                            Mein Unterricht arbeitet mit Körperdurchlässigkeit, flexiblem Atem
+                            und einer feinen Wahrnehmung von Spannung und Lösung. Grundlage
+                            sind die <strong>italienische Gesangstechnik</strong> und die
+                            <strong>Schlaffhorst-Andersen-Methode</strong>.
                         </p>
                         <div class="content-section image-content-section">
-                            <img :src="singenImage" alt="Stimmbildung und Gesangstechnik" class="singen-bild" />
+                            <img :src="singenImage" alt="Gesangsunterricht im Salon" class="hero-image" />
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2 class="h2-style mb-6">
-                            Häufige Fragen
-                        </h2>
-                        <div v-for="(item, i) in faqs" :key="i" class="mb-6">
-                            <h3 class="h3-style">
-                                <v-icon color="primary" class="mr-2">{{ item.icon }}</v-icon>
-                                {{ item.question }}
-                            </h3>
+                        <h2 class="h2-style mb-6">Drei Wege zum Singen</h2>
+                        <v-row>
+                            <v-col v-for="(offer, i) in offerings" :key="i" cols="12" md="4">
+                                <div class="offer-card">
+                                    <h3 class="offer-title">{{ offer.title }}</h3>
+                                    <p class="offer-text">{{ offer.text }}</p>
+                                    <p class="offer-meta">{{ offer.meta }}</p>
+                                </div>
+                            </v-col>
+                        </v-row>
+                    </div>
+
+                    <div class="content-section">
+                        <h2 class="h2-style mb-6">Häufige Fragen</h2>
+                        <div v-for="(item, i) in faqs" :key="i" class="faq-item">
+                            <h3 class="faq-question">{{ item.question }}</h3>
                             <p class="body-text">{{ item.answer }}</p>
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2 class="h2-style mb-6">
-                            Ihr stimmlicher Entwicklungsweg
-                        </h2>
-                        <v-list lines="two" class="rounded-lg benefit-list" elevation="2">
-                            <v-list-item v-for="(benefit, i) in benefits" :key="i" :prepend-icon="benefit.icon">
-                                <template v-slot:prepend>
-                                    <div class="icon-wrapper">
-                                        <v-icon :color="benefit.color">{{ benefit.icon }}</v-icon>
-                                    </div>
-                                </template>
-                                <v-list-item-title class="font-weight-bold list-item-title">{{ benefit.title
-                                    }}</v-list-item-title>
-                                <v-list-item-subtitle class="list-item-subtitle">{{ benefit.subtitle
-                                    }}</v-list-item-subtitle>
-                            </v-list-item>
-                        </v-list>
+                        <h2 class="h2-style mb-6">Ihr stimmlicher Entwicklungsweg</h2>
+                        <ul class="benefit-list">
+                            <li v-for="(benefit, i) in benefits" :key="i" class="benefit-item">
+                                <div class="benefit-title">{{ benefit.title }}</div>
+                                <div class="benefit-subtitle">{{ benefit.subtitle }}</div>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="content-section">
-                        <h2 class="h2-style mb-6">
-                            Einblicke in die Stimmkunst
-                        </h2>
+                        <h2 class="h2-style mb-6">Einblicke in die Stimmkunst</h2>
                         <div class="video-container">
-                            <iframe width="100%" height="360" src="https://www.youtube.com/embed/3i05ngoBnRk"
-                                title="Einführung in die Stimmbildung" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            <iframe width="100%" height="360" src="https://www.youtube-nocookie.com/embed/3i05ngoBnRk"
+                                title="The Lord bless you and keep you" frameborder="0"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen style="border: none;">
                             </iframe>
                         </div>
@@ -83,49 +80,44 @@ import { ref } from 'vue';
 import TutorPricing from '@/components/TutorPricing.vue';
 import singenImage from '@/assets/home_logos/singen.jpg';
 
+const offerings = ref([
+    {
+        title: 'Gesangsunterricht',
+        text: 'Einzelunterricht, der zur Stimme passt — ab 14 Jahren bis ins Erwachsenenalter.',
+        meta: '45 min wöchentlich oder 60 min einzeln',
+    },
+    {
+        title: 'Singkreis',
+        text: 'Einfache Lieder und Kanons in vertrauensvoller Runde — ohne Vorkenntnisse.',
+        meta: 'Alle 14 Tage · 90 min · 15 € pro Termin',
+    },
+    {
+        title: 'MitsingKonzerte',
+        text: 'Gemeinschaftliches Singen mit einfachen Liedern und zweistimmigen Sätzen.',
+        meta: 'Termine auf Anfrage',
+    },
+]);
+
 const faqs = ref([
     {
         question: 'Brauche ich musikalische Vorkenntnisse?',
-        answer: 'Ihre Stimme ist das natürlichste Instrument. Wir arbeiten mit Ihren individuellen Voraussetzungen und entwickeln Schritt für Schritt Ihr volles Potenzial.',
-        icon: 'mdi-account-voice',
+        answer: 'Nein. Ihre Stimme ist Ihr Instrument — wir starten dort, wo Sie stehen, und entwickeln Schritt für Schritt Ihre Möglichkeiten.',
     },
     {
-        question: 'Wie verbessert Gesang die Körperwahrnehmung?',
-        answer: 'Durch gezielte Atemtechniken und Körperarbeit entwickeln Sie ein neues Bewusstsein für Resonanzräume und natürliche Klangentfaltung.',
-        icon: 'mdi-yoga',
+        question: 'Wie hängt Atem mit Gesang zusammen?',
+        answer: 'Singen lebt vom freien Atemfluss. Wir arbeiten mit Körperwahrnehmung und Atemspielraum, damit der Klang ohne Druck tragen kann.',
     },
     {
-        question: 'Kann ich meine Stimme gesund erhalten?',
-        answer: 'Wir erarbeiten nachhaltige Stimmtechniken, die Ihre Stimme schonen und gleichzeitig ihre volle Ausdruckskraft entfalten.',
-        icon: 'mdi-heart-plus',
+        question: 'Kann ich auch im Singkreis einsteigen?',
+        answer: 'Ja, der Singkreis ist offen. Einfache Lieder, eine vertrauensvolle Atmosphäre — ideal, um die eigene Stimme zu entdecken.',
     },
 ]);
 
 const benefits = ref([
-    {
-        title: 'Atem als Fundament',
-        subtitle: 'Entwicklung einer natürlichen Atemstütze für tragfähigen Klang',
-        icon: 'mdi-lungs',
-        color: 'deep-purple',
-    },
-    {
-        title: 'Körperbewusstsein',
-        subtitle: 'Nutzung natürlicher Resonanzräume für voluminösen Klang',
-        icon: 'mdi-human-handsup',
-        color: 'cyan',
-    },
-    {
-        title: 'Vokalausgleich',
-        subtitle: 'Ausgewogene Klangbildung in allen Registerlagen',
-        icon: 'mdi-music-note',
-        color: 'pink',
-    },
-    {
-        title: 'Emotionaler Ausdruck',
-        subtitle: 'Authentische Verbindung von Technik und Interpretation',
-        icon: 'mdi-emoticon-happy',
-        color: 'amber',
-    },
+    { title: 'Atem als Fundament', subtitle: 'Natürliche Atemstütze für tragfähigen Klang' },
+    { title: 'Italienische Schule', subtitle: 'Klassische Klangideale und Resonanzführung' },
+    { title: 'Schlaffhorst-Andersen', subtitle: 'Ganzheitliche Stimm- und Atemarbeit' },
+    { title: 'Selbstannahme', subtitle: 'Singen mit Mut und kreativem Ausdruck' },
 ]);
 </script>
 
@@ -153,46 +145,7 @@ const benefits = ref([
     }
 }
 
-.singen-bild {
-    width: 100%;
-    max-width: 750px;
-    height: auto;
-    border-radius: 12px;
-}
-
-.benefit-list {
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.list-item-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2d3748;
-}
-
-.list-item-subtitle {
-    font-size: 1rem;
-    color: #4a5568;
-}
-
-.v-list-item {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid #e2e8f0;
-    align-items: center;
-}
-
-.v-list-item:last-child {
-    border-bottom: none;
-}
-
-.icon-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 1rem;
-    width: 24px;
-    height: 24px;
-
+.page-hero {
+    margin: 1.5rem 0 3.5rem;
 }
 </style>

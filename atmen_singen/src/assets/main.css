@@ -22,35 +22,51 @@
 
 .h1-style {
   font-family: 'Inter';
-  font-size: 2.2rem;
-
-  font-weight: bold;
+  font-size: 2.6rem;
+  font-weight: 700;
   margin: 1.5rem 0;
-  line-height: 1.2;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #1f2937;
 }
 
 .h2-style {
   font-family: 'Inter';
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #2d3748;
+  line-height: 1.3;
 }
 
 .h3-style {
   font-family: 'Inter';
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #34495e;
-  margin-top: 1.5rem;
+  color: #2d3748;
+  margin-top: 1.25rem;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.005em;
+}
+
+/* Editoriale Vorzeile über H1 — z.B. "Musikunterricht" / "Therapeutische Praxis". */
+.eyebrow {
+  font-family: 'Kolage Light', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c97b2a;
+  margin: 0 0 0.75rem;
+  text-align: center;
 }
 
 @media (max-width: 959px) {
   .h1-style {
     font-size: 2rem;
   }
-  
-  .h2-style  {
-    font-size: 1.75rem;
+
+  .h2-style {
+    font-size: 1.35rem;
   }
 }
 
@@ -71,7 +87,144 @@
   font-family: 'Kolage Light', sans-serif;
   font-size: 15px;
   font-weight: bold;
+}
+
+/* Plain-Variant (Navigation, Footer, Hover-Strich-Buttons) ohne Padding,
+   damit der Unterstrich-Effekt sauber sitzt. */
+.v-btn.v-btn--variant-plain {
   padding: 0;
+}
+
+/* Einheitlicher Solid-CTA: gleiches Padding, gleiche Höhe, gleicher Radius. */
+.cta-btn {
+  height: 44px !important;
+  padding: 0 22px !important;
+  border-radius: 10px !important;
+  letter-spacing: 0.01em !important;
+  text-transform: none !important;
+}
+
+/* ===== Service-View Content-Patterns (geteilt von Klavier/Singen/Sprechen/Atmen) ===== */
+
+/* Audience-/Focus-Karte: ruhige Box, dezenter Akzentstrich links statt Icon. */
+.audience-card,
+.focus-card {
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 3px solid #c97b2a;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.audience-title,
+.focus-title {
+  font-family: 'Inter';
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.4rem;
+  color: #2d3748;
+}
+
+.audience-text,
+.focus-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Angebots-Karte mit Meta-Zeile. */
+.offer-card {
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-left: 3px solid #c97b2a;
+  border-radius: 8px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-title {
+  font-family: 'Inter';
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: #2d3748;
+}
+
+.offer-text {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.offer-meta {
+  font-size: 0.85rem;
+  color: #c97b2a;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+/* FAQ — reduziert auf Typografie. */
+.faq-item {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  font-family: 'Inter';
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.5rem;
+  line-height: 1.4;
+}
+
+/* Editoriales Highlight-Raster: 2-spaltig, kein Kasten, schmale Akzent-Linie.
+   Ergänzt die Offer-Cards stilistisch — gleicher Akzent, leichteres Gewicht. */
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 2.5rem;
+}
+
+.benefit-item {
+  padding: 0.1rem 0 0.1rem 1rem;
+  border-left: 2px solid rgba(201, 123, 42, 0.45);
+}
+
+.benefit-title {
+  font-family: 'Inter';
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0 0 0.3rem;
+}
+
+.benefit-subtitle {
+  font-size: 0.95rem;
+  color: #5a6577;
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .benefit-list {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }
 
 .v-list-item {
@@ -137,13 +290,51 @@
 }
 
 .content-section {
-  margin-bottom: 5rem;
+  margin-bottom: 4.5rem;
+}
+
+.content-section:last-child {
+  margin-bottom: 2rem;
 }
 
 .body-text {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.7;
   color: #4a5568;
+  max-width: 65ch;
+}
+
+/* Hero-Bild — dezenter Schatten, definierte Aspect-Ratio gegen Layout-Sprünge. */
+.hero-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  display: block;
+}
+
+/* Subtle entrance fade-up für Service-Views. */
+.fade-in {
+  animation: fadeUp 0.6s ease-out both;
+}
+
+.fade-in-delay-1 { animation-delay: 0.08s; }
+.fade-in-delay-2 { animation-delay: 0.16s; }
+.fade-in-delay-3 { animation-delay: 0.24s; }
+.fade-in-delay-4 { animation-delay: 0.32s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .video-container {

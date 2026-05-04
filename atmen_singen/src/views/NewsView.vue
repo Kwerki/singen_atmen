@@ -1,24 +1,36 @@
 <template>
   <div class="main-container">
-    <h1 class="h1-style text-center mb-8">News</h1>
-    <v-divider class="my-8">
-      <v-icon color="secondary">mdi-newspaper-variant</v-icon>
-    </v-divider>
-    
+    <div class="page-hero fade-in">
+      <p class="eyebrow">Aktuelles</p>
+      <h1 class="h1-style text-center">News</h1>
+    </div>
+
     <v-container v-if="news.length">
       <v-row>
-        <v-col v-for="item in news" :key="item.id" cols="12" md="6" lg="4">
-          <v-card class="news-card" elevation="2">
-            <v-card-text>
-              <div class="news-date">{{ formatDate(item.date) }}</div>
-              <h3 class="h3-style mb-3">{{ item.title }}</h3>
-              <p class="body-text">{{ item.text }}</p>
-            </v-card-text>
+        <v-col v-for="item in news" :key="item.id" cols="12">
+          <v-card class="news-card-full" elevation="2">
+            <v-row no-gutters align="stretch">
+              <v-col cols="12" md="4">
+                <img
+                  :src="getImageSrc(item)"
+                  loading="lazy"
+                  alt=""
+                  class="news-image"
+                />
+              </v-col>
+              <v-col cols="12" md="8">
+                <v-card-text class="news-card-content">
+                  <div class="news-date">{{ formatDate(item.date) }}</div>
+                  <h3 class="h3-style mb-2">{{ item.title }}</h3>
+                  <p class="body-text">{{ item.text }}</p>
+                </v-card-text>
+              </v-col>
+            </v-row>
           </v-card>
         </v-col>
       </v-row>
     </v-container>
-    
+
     <v-container v-else>
       <p class="body-text text-center">Noch keine News vorhanden.</p>
     </v-container>
@@ -26,10 +38,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import newsData from '@/assets/news.json';
+import { useNews } from '@/composables/useNews';
 
-const news = ref(newsData);
+const { news, getImageSrc } = useNews();
 
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
@@ -38,9 +49,33 @@ const formatDate = (dateStr) => {
 </script>
 
 <style scoped>
-.news-card {
+.page-hero {
+  margin: 1.5rem 0 3rem;
+}
+
+.news-card-full {
   border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1rem;
+}
+
+.news-card-full:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.news-image {
+  display: block;
+  width: 100%;
   height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.news-card-content {
+  padding: 1.5rem;
 }
 
 .news-date {
@@ -48,5 +83,12 @@ const formatDate = (dateStr) => {
   color: #9a8c7a;
   margin-bottom: 0.5rem;
   font-weight: 500;
+}
+
+@media (max-width: 959px) {
+  .news-image {
+    height: 220px;
+    min-height: 220px;
+  }
 }
 </style>

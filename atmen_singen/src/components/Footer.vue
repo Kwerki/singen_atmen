@@ -9,8 +9,16 @@
                                 class="text-decoration-none d-flex align-center">
                                 <div class="footer-link-underline h2-style">AtemWelt Praxis</div>
                             </a>
-                            <div>Schwenken Weg 6</div>
+                            <div>Schwenkenweg 6</div>
                             <div>34576 Homberg Efze</div>
+                            <div class="mt-2">
+                                <a href="tel:+4915204485100" class="contact-line">0152 – 044 85 100</a>
+                            </div>
+                            <div>
+                                <a href="mailto:antjes-klavierschule@outlook.com" class="contact-line">
+                                    antjes-klavierschule@outlook.com
+                                </a>
+                            </div>
                         </div>
                         <v-btn icon href="https://g.co/kgs/DVwrE6R" target="_blank" class="ml-2">
                             <v-icon large color="primary">mdi-google-maps</v-icon>
@@ -23,7 +31,7 @@
 
                     <v-col cols="12" md="4" class="d-flex justify-end mobile-center">
                         <div class="font-inter-regular text-center">
-                            © 2025 AtemWelt Praxis<br>
+                            © 2026 AtemWelt Praxis<br>
                             Alle Rechte vorbehalten
                         </div>
                     </v-col>
@@ -54,8 +62,8 @@
 <style scoped>
 .main-footer {
     margin-top: 200px;
-    background: #F2D394;
-    border-top: 1px solid #787272;
+    background: #fdf8ef;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     min-height: 150px !important;
 }
 
@@ -95,6 +103,16 @@ a:hover .footer-link-underline::after {
 a {
     color: inherit !important;
     transition: opacity 0.3s;
+}
+
+.contact-line {
+    font-size: 0.95rem;
+    color: #2c2a28 !important;
+    text-decoration: none;
+}
+
+.contact-line:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 959px) {

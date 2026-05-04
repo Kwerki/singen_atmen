@@ -4,11 +4,12 @@
     <!-- Hero Section -->
     <div class="hero-section">
       <h1 class="h1-style text-center">
-        Zwei Wege.<br class="hero-break"> Eine Leidenschaft.
+        Willkommen in der<br class="hero-break"> AtemWelt
       </h1>
       <p class="hero-subtitle text-center body-text">
-        Entdecken Sie Angebote für Musik &amp; Kunst oder Sprache &amp; Therapie — 
-        und finden Sie Ihren persönlichen Zugang zur Welt der Stimme.
+        Atmen · Sprechen · Singen · Klavier spielen — Musikschule und
+        therapeutische Praxis unter einem Dach. Künstlerischer Ausdruck,
+        Bühnenpräsenz und ganzheitliche Stimmarbeit für jedes Alter.
       </p>
     </div>
 
@@ -149,7 +150,7 @@
           <v-card class="news-card-full" elevation="2" @click="navigateTo('/news')">
             <v-row no-gutters align="center">
               <v-col cols="12" md="4">
-                <img :src="getNewsImage(item.imageId)" loading="lazy" height="200" cover class="news-image" style="object-fit: cover; width: 100%;">
+                <img :src="getNewsImage(item)" loading="lazy" height="200" cover class="news-image" style="object-fit: cover; width: 100%;">
               </v-col>
               <v-col cols="12" md="8">
                 <v-card-text class="news-card-content">
@@ -169,17 +170,15 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-
-import newsData from '@/assets/news.json';
+import { useNews } from '@/composables/useNews';
 
 const router = useRouter();
+const { news, getImageSrc } = useNews();
 
 router.options.scrollBehavior = (to, from, savedPosition) => {
   return { top: 0 };
 };
 
-const news = newsData;
-
 const musikImage = new URL('@/assets/home_logos/singen.jpg', import.meta.url).href;
 const spracheImage = new URL('@/assets/landing/sprache.jpg', import.meta.url).href;
 
@@ -192,30 +191,7 @@ const formatDate = (dateStr) => {
   return date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
 };
 
-// Static image paths
-const musikImage = new URL('@/assets/home_logos/singen.jpg', import.meta.url).href;
-const spracheImage = new URL('@/assets/landing/sprache.jpg', import.meta.url).href;
-
-// Proper per-news-item image mapping
-const newsImageMap = {
-  1: new URL('@/assets/home_logos/singen.jpg', import.meta.url).href,
-  2: new URL('@/assets/home_logos/klavier.jpg', import.meta.url).href,
-  3: new URL('@/assets/home_logos/sprechen.jpg', import.meta.url).href,
-};
-
-const navigateTo = (route) => {
-  router.push(route);
-};
-
-const formatDate = (dateStr) => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString('de-DE', { day: '2-digit', month: 'long', year: 'numeric' });
-};
-
-// Use imageId from news item to show correct image
-const getNewsImage = (imageId) => {
-  return newsImageMap[imageId] || newsImageMap[1];
-};
+const getNewsImage = (item) => getImageSrc(item);
 
 </script>
 

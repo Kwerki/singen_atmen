@@ -9,7 +9,6 @@ import AdminView from '@/views/AdminView.vue'
 import TerminView from '@/views/TerminView.vue'
 import AboutMeView from '@/views/AboutMeView.vue'
 import YoutubeView from '@/views/YoutubeView.vue'
-import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {

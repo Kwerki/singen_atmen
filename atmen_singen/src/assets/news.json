@@ -1,20 +1,30 @@
 [
   {
     "id": 1,
-    "title": "Neue Website geht online!",
-    "text": "Wir freuen uns, Ihnen unsere neue Website präsentieren zu können. Entdecken Sie unsere Angebote für Musik und Sprache.",
-    "date": "2026-04-29"
+    "title": "Schauspieltraining am Sa., 28. März 2026",
+    "text": "16:00 – 19:30 Uhr im Salon. Erforsche Körper, Stimme, Atem und Emotionen — und entdecke einen eigenen Charakter. Anmeldung per Telefon oder SMS unter 0152 044 85 100.",
+    "date": "2026-03-15",
+    "imageId": 3
   },
   {
     "id": 2,
     "title": "Sommerferien-Kurse ab Juni",
-    "text": "Ab Juni bieten wir intensive Sommerferien-Kurse für Gesang und Klavier an. Anmeldungen jetzt möglich!",
-    "date": "2026-04-20"
+    "text": "Ab Juni gibt es intensive Sommerferien-Kurse für Gesang und Klavier. Anmeldungen sind ab sofort möglich.",
+    "date": "2026-04-20",
+    "imageId": 2
   },
   {
     "id": 3,
     "title": "Freie Termine für Logopädie",
-    "text": "Wir haben neue freie Termine für Logopädie-Sprechstunden verfügbar. Kontaktieren Sie uns für eine Beratung.",
-    "date": "2026-04-15"
+    "text": "In der Praxis AtemWelt sind aktuell neue Termine für Logopädie-Sprechstunden verfügbar. Auch auf Kassenrezept.",
+    "date": "2026-04-15",
+    "imageId": 3
+  },
+  {
+    "id": 4,
+    "title": "Neue Website online!",
+    "text": "Die AtemWelt hat ein neues digitales Zuhause. Entdecken Sie Angebote rund um Atem, Stimme, Sprache und Klavier — alles übersichtlich an einem Ort.",
+    "date": "2026-04-29",
+    "imageId": 1
   }
 ]
